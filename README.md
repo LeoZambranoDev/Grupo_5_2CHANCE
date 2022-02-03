@@ -7,8 +7,12 @@ Integrantes:
 
     Juan David Sepúlveda: Es un placer estar acá primeramente, tengo 27 años, resido actualmente en Aguazul - Casanare; soy Ingeniero Electrónico, trabajo en el área de soporte de sistemas, si bien, mi carrera, a pesar de estar estrechamente relacionada con la programación, no me implicó directamente, aún así, durante el desarrollo de mi trabajo de grado; el propósito del mismo se encontró bastante de la mano y tuve que aprender un poco más para llevarlo a cabo; el interes fue inmediato y por eso, me encuentro desarrollando este genial bootcamp; muchas ganas de seguir aprendiendo, y de proporcionar el tiempo que sea necesario para llevar a buen puerto mi aprendizaje.
 
+    Santiago Lopez: Tengo 27 Años, me gradue de biotecnologia en el Colegio Mayor de Antioquia y actualmente me encuentro estudiando programacion FullStack, tuve encuentros con la programacion en mi vida profesional con lenguajes como SQL para bases de datos y HTML, sin embargo soy novato en JavaScript y otros lenguajes de programacion, me gustaria seguir aprendiendo para ejercer la programacion a nivel profesional.
+
 Links:
     https://listado.mercadolibre.com.co/celulares-segunda : nos gustaron las características que muestran cuando se selecciona determinado celular. Aparecen fotos desde diferentes ángulos y en letra más grande datos relevantes como la memoria del dispositivo. Es fácil encontrar el botón de comprar.
+
+    https://www.olx.com.co/items/q-celulares-de-segunda-venta : Me parece que las caracteristicas de esta pagina son muy buenas, tiene muy bien estructurados los productos y es de facil acceso.
 
     https://www.amazon.com/-/es/s?i=mobile&bbn=7072561011&rh=n%3A7072561011%2Cp_n_condition-type%3A6503242011&dc&language=es&qid=1643806950&rnid=23488796011&ref=sr_nr_p_n_feature_twenty-two_browse-bin_4 : en la sección de celulares usados se pueden fitrar por múltiples características. Si bien no vamos a usar todas esas, nos ayuda a escoger las que consideramos más relevantes.
  
