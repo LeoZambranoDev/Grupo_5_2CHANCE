@@ -23,3 +23,5 @@ Links:
  
    https://universoextremo.com/?v=42983b05e2f2 
    Esta página fue elegida por su estética, la presentación de sus productos, la manera tan sencilla en la que fue organizada
+   
+   https://www.falabella.com.co/falabella-co La disposición de la información es bastante clara y la estetica muy limpia permitiendo acceder de manera intuitiva a los articulos.
