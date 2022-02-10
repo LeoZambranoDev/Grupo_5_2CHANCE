@@ -25,3 +25,6 @@ Links:
    Esta página fue elegida por su estética, la presentación de sus productos, la manera tan sencilla en la que fue organizada
    
    https://www.falabella.com.co/falabella-co La disposición de la información es bastante clara y la estetica muy limpia permitiendo acceder de manera intuitiva a los articulos.
+
+
+    LINK TRELLO: https://trello.com/b/CdmMIxjm/2chance-digital-house 
