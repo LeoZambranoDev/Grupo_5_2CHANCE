@@ -12,8 +12,8 @@ app.use(express.static(path.resolve('public')))
 app.listen(8000,() =>"Server running in port 8000")
 
 app.get('/',(req,res)=>{
-    //res.sendFile(path.resolve('views/home.html'))
-    res.send("Funcionando")
+    res.sendFile(path.resolve('views/home.html'))
+    // res.send("Funcionando")
 })
 app.get('/login',(req,res)=>{
     res.sendFile(path.resolve('views/login.html'))
