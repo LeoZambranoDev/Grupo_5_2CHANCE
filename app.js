@@ -1,6 +1,5 @@
 
 //Requerimos express para ser usado como servidor
-const { response } = require('express')
 const express=require('express')
 //Inicializamos 
 const app= express()
@@ -16,3 +15,8 @@ app.get('/',(req,res)=>{
     //res.sendFile(path.resolve('views/home.html'))
     res.send("Funcionando")
 })
+app.get('/login',(req,res)=>{
+    res.sendFile(path.resolve('views/login.html'))
+    
+})
+
