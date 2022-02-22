@@ -1,0 +1,61 @@
+
+
+/* Register */
+
+    .contentRegister{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formRegisterUser{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 50vh;
+        border: rgb(35, 35, 218) solid;
+        border-radius: 10px;
+        background-color: beige;
+    }
+    .formRegisterUser input[type="text"], .formRegisterUser input[type="password"], .formRegisterUser input[type="email"] {
+        border: none;
+        width: 90%;
+        height: 25px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        padding-left: 20px;
+    }
+
+    .formRegisterUser button{
+        margin-top: 15px;
+        background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        width: 200px;
+        height: 35px;
+    }
+
+    .formRegisterUser input[type="checkbox"] {
+        margin-top: 5px;
+    }
+    .formRegisterUser input::placeholder{
+        padding-left: 15px;
+        font-style: italic;
+    }
+    
+/* Register */
+
+
+@media (min-width:768px ) {
+    .formRegisterUser{
+        width: 60%;
+    }
+}
+@media (min-width:1200px ) {
+    .formRegisterUser{
+        width: 50%;
+    }
+}
