@@ -30,6 +30,8 @@
         width: 200px;
         height: 35px;
         margin: 10px auto 10px auto;
+        border-radius: 5px;
+        border: none;
     }
 
     .form-login button{
