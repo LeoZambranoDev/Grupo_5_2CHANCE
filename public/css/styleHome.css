@@ -60,7 +60,9 @@ header{
 }
 /* header */
 
-
+.options {
+    text-align: center;
+}
 
 
 

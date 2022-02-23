@@ -1,0 +1,233 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+/* header */
+
+header{
+  background-color: gray;
+}
+
+.navBar{
+  background-color: gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+.menuBurguer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+}
+
+.logo{
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo img{
+  width: 100%;
+}
+
+.formBusqueda{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-right{
+  display: none;
+  color: white;
+}
+
+.message, .carShop{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+}
+/* header */
+
+/* main */
+p{
+  font-size: 18px;
+}
+.title-category {
+  font-size: 18px;
+  font-weight: bold;
+}
+.filters {
+background-color: #DCDCDC;
+margin: 10px 0px;
+width: 20%;
+padding: 15px;
+}
+.filters article {
+  padding-top: 20px;
+  
+}
+main {
+    display: flex;
+     }
+
+.slidecontainer {
+    width: 100%; 
+  }
+  
+  .slider {
+    -webkit-appearance: none;  
+    appearance: none;
+    width: 90%; 
+    height: 25px;
+    background: white; 
+    outline: none; 
+    opacity: 0.7; 
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }  
+  .slider:hover {
+    opacity: 1; 
+  }
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 25px; 
+    height: 25px; 
+    background: #04AA6D; 
+    cursor: pointer; 
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25epx; 
+    height: 2; 
+    background: #04AA6D; 
+    cursor: pointer; 
+  }
+  .blackcolor {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: black;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+  }
+  .graycolor {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: gray;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+  }
+  .whitecolor {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+  }
+  .bluecolor {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: blue;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+  }
+  .redcolor {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: red;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+  }
+  .goldcolor {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: goldenrod;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+  }
+  .anothercolor {
+    width: 2.1em;
+    height: 1.3em;
+    background-color: none;
+    border-radius: 5%;
+    border: 1px solid #ddd;
+  }
+  .products article {
+    background-color: white;    
+    margin: 5px;
+    width: 75%;
+    border: 5px solid #DCDCDC;
+    padding: 15px;
+  }
+  .products article img {
+    width: 75%;
+    display: block;
+    margin: auto;
+  }
+  .main-article {
+        margin-top: 10px;
+        border-top: 1px solid #DCDCDC; 
+    
+}
+/* main */
+/* footer */
+footer{
+  background-color: gray;
+  color: white;
+}
+.footer{
+  background-color: gray;
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  margin: auto;
+}
+
+.logoFooter{
+  display: none;
+}
+.logoFooter img{
+  width: 100%;
+}
+
+/* footer */
+
+
+@media (min-width: 361px){
+  .products  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }    
+  
+  .products article {
+      width: 30%;
+  }
+  .products article img {
+    height: 200px;
+  }
+}
+@media (min-width: 768px){
+  .products article  {
+      width: 20%;
+  }
+  .content-right{
+    display: flex;
+}
+.logoFooter{
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+}

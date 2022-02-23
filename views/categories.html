@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styleCategories.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Inicio</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="navBar">
+            <div class="menuBurguer"><i class="fa-solid fa-bars"></i></div>
+
+            <div class="logo">
+                <img src="img/logoProvisional2.png" alt="logo">
+            </div>
+
+            <div class="content-right">
+                <form class="formBusqueda" action="">
+                    <input type="text">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <div class="carShop"><i class="fa-solid fa-cart-shopping"></i></div>
+                <div class="message"><i class="fa-solid fa-inbox"></i></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="filters">
+            <form action="/" method="post">
+                <article class="brands">
+                    <label class="title-category">Marca:</label>
+                    <br>
+                    <p><input type="checkbox" name="brand" value="apple">
+                        <label>Apple</label>
+                    </p>
+                    <p><input type="checkbox" name="brand" value="samsung">
+                        <label>Samsung</label>
+                    </p>
+                    <p> <input type="checkbox" name="brand" value="huawei">
+                        <label>Huawei</label>
+                    </p>
+                    <p><input type="checkbox" name="brand" value="oppo">
+                        <label>OPPO</label>
+                    </p>
+                    <p> <input type="checkbox" name="brand" value="sony">
+                        <label>Sony</label>
+                    </p>
+                    <p> <input type="checkbox" name="brand" value="realme">
+                        <label>Realme</label>
+                    </p>
+                    <p> <input type="checkbox" name="brand" value="lg">
+                        <label>LG</label>
+                    </p>
+                    <p> <input type="checkbox" name="brand" value="anotherbrand">
+                        <label>Otra</label>
+                    </p>
+
+                </article>
+                <article class="price">
+                    <label class="title-category">Rango de precio:</label>
+                    <br>
+                    <div class="mainslidercontainer">
+                        <div class="slidecontainer">
+                            <input type="range" min="100000" max="500000" value="2000000" class="slider" id="myRange">
+                        </div>
+                    </div>
+
+
+                </article>
+                <article class="color">
+                    <label class="title-category">Color:</label>
+                    <br>
+                    <div class="coloroptions">
+                        <button class="blackcolor" name="black"></button>
+                        <button class="graycolor" name="gray"></button>
+                        <button class="whitecolor" name="white"></button>
+                        <button class="bluecolor" name="blue"></button>
+                        <button class="redcolor" name="red"></button>
+                        <button class="goldcolor" name="gold"></button>
+                        <button class="anothercolor" name="another">Otro</button>
+                    </div>
+                </article>
+                <article class="memory-storage">
+                    <label class="title-category">Memoria interna:</label>
+                    <br>
+                    <p><input type="checkbox" name="memory" value="upto32">
+                        <label>Menos de 32 GB</label>
+                    </p>
+                    <p><input type="checkbox" name="memory" value="upto63">
+                        <label>32 a 63 GB</label>
+                    </p>
+                    <p><input type="checkbox" name="memory" value="upto127">
+                        <label>64 a 127 GB</label>
+                    </p>
+                    <p><input type="checkbox" name="memory" value="upto255">
+                        <label>128 a 255 GB</label>
+                    </p>
+                    <p><input type="checkbox" name="memory" value="256ormore">
+                        <label>256 GB o más</label>
+                    </p>
+                </article>
+                <article class="camera-resolution">
+                    <label class="title-category">Resolución de Cámara:</label>
+                    <br>
+                    <p><input type="checkbox" name="camera" value="upto32">
+                        <label>Menos de 5 MP</label>
+                    </p>
+                    <p><input type="checkbox" name="camera" value="upto8">
+                        <label>5 a 7.9 MP</label>
+                    </p>
+                    <p><input type="checkbox" name="camera" value="upto13">
+                        <label>8 a 12.9 MP</label>
+                    </p>
+                    <p><input type="checkbox" name="camera" value="upto20">
+                        <label>13 a 19.9 MP</label>
+                    </p>
+                    <p><input type="checkbox" name="camera" value="20ormore">
+                        <label>20 MP o más</label>
+                    </p>
+                </article>
+            </form>
+        </section>
+        <section class="products">
+            <article class="cellphone">
+                <img src="img/GalaxyNote10Lite.jpg" alt="samsung" class="product_img">
+                <div class="main-article">
+                    <p class="price">$1.250.000</p>
+                </div>
+                <h4 class="description">Galaxy Note 10 Lite</h4>
+                </div>
+            </article>
+            <article class="cellphone">
+                <img src="img/iPhone8Plus.jpg" alt="iphone" class="product_img">
+                <div class="main-article">
+                    <p class="price">$1.400.000</p>
+                </div>
+                <h4 class="description">iPhone 8 Plus</h4>
+                </div>
+            </article>
+            <article class="cellphone">
+                <img src="img/HuaweiY7.jpg" alt="huawei" class="product_img">
+                <div class="main-article">
+                    <p class="price">$340.000</p>
+                </div>
+                <h4 class="description">Huawei Y7</h4>
+                </div>
+            </article>
+            <article class="cellphone">
+                <img src="img/OppoA54.jpg" alt="oppo" class="product_img">
+                <div class="main-article">
+                    <p class="price">$800.000</p>
+                </div>
+                <h4 class="description">Oppo A54</h4>
+                </div>
+            </article>
+            <article class="cellphone">
+                <img src="img/SonyXperia.jpg" alt="sony" class="product_img">
+                <div class="main-article">
+                    <p class="price">$510.000</p>
+                </div>
+                <h4 class="description">Sony Xperia F3113</h4>
+                </div>
+            </article>
+            <article class="cellphone">
+                <img src="img/RealmeGt5g.jpg" alt="realme" class="product_img">
+                <div class="main-article">
+                    <p class="price">$2.000.000</p>
+                </div>
+                <h4 class="description">Realme Gt 5g</h4>
+                </div>
+            </article>
+            <article class="cellphone">
+                <img src="img/LGK10Lte.jpg" alt="lg" class="product_img">
+                <div class="main-article">
+                    <p class="price">$400.000</p>
+                </div>
+                <h4 class="description">LG K10 LTE</h4>
+                </div>
+            </article>
+            <article class="cellphone">
+                <img src="img/MotorolaNexus6.jpg" alt="motorola" class="product_img">
+                <div class="main-article">
+                    <p class="price">$200.000</p>
+                </div>
+                <h4 class="description">Motorola Nexus 6</h4>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="logoFooter"><img src="img/logoProvisional2.png" alt="logo"></div>
+            <div>
+                <ul>
+                    Información
+                    <li>Bueno</li>
+                    <li>Bonito</li>
+                    <li>Barato</li>
+                </ul>
+            </div>
+            <div>
+                <p>REDES</p>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-reddit"></i>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
