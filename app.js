@@ -9,7 +9,7 @@ const path=require('path')
 app.use(express.static(path.resolve('public')))
 
 //Listen para que el server se mantenga escuchando al navegador
-app.listen(8000,() =>"Server running in port 8000")
+app.listen(process.env.PORT || 8000,() => console.log('Server running in 8000 port'));
 
 app.get('/',(req,res)=>{
     //res.sendFile(path.resolve('views/home.html'))
@@ -20,3 +20,7 @@ app.get('/login',(req,res)=>{
     
 })
 
+app.get('/detalle',(req,res)=>{
+    res.sendFile(path.resolve('views/detalle.html'))
+    
+})

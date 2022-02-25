@@ -1,0 +1,16 @@
+
+.hola {
+    font-weight: bold;
+}
+.button button{
+    background-color: darkslateblue;
+    color: white;
+    width:20%;
+    border-radius: 20%;
+}
+
+
+
+body {
+    background-color: grey;
+}
