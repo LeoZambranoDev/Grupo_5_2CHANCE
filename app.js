@@ -12,11 +12,18 @@ app.use(express.static(path.resolve('public')))
 app.listen(process.env.PORT || 8000,() => console.log('Server running in 8000 port'));
 
 app.get('/',(req,res)=>{
-    //res.sendFile(path.resolve('views/home.html'))
-    res.send("Funcionando")
+    res.sendFile(path.resolve('views/home.html'))
+    // res.send("Funcionando")
 })
 app.get('/login',(req,res)=>{
     res.sendFile(path.resolve('views/login.html'))
+    
+})
+app.get('/register',(req,res)=>{
+    res.sendFile(path.resolve('views/registerUser.html'))
+})
+app.get('/categories',(req,res)=>{
+    res.sendFile(path.resolve('views/categories.html'))
     
 })
 

@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styleHome.css">
-    <link rel="stylesheet" href="css/styleLogin.css">
+    <link rel="stylesheet" href="css/styleRegister.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Login</title>
+    <title>Registrarme</title>
 </head>
-<body>
 
+<body>
 
     <header>
         <div class="navBar">
@@ -36,16 +37,20 @@
 
     <main>
 
-        <div class="container-login">
-            <form  class="form-login" action="">
+        <div class="contentRegister">
+            <form class="formRegisterUser" action="">
                 <input type="text" placeholder="Usuario">
-                <input type="password" placeholder="Contraseña" name="pass" id="pass">
-                <button type="submit">Ingresar</button>
+                <input type="email" placeholder="Correo">
+                <input type="password" placeholder="Contraseña">
+                <input type="password" placeholder="Confirmar contraseña">
+                <div><input type="checkbox" name="terminos" id="terminos"> <label for="terminos">Aceptar términos y condiciones</label></div>
+                <div><input type="checkbox" name="ofertas" id="ofertas"><label for="ofertas">Deseo recibir ofertas en mi correo</label> </div>
+                <button type="submit">Registrarme</button>
             </form>
+
         </div>
 
     </main>
-
 
 
     <footer>
@@ -67,6 +72,7 @@
             </div>
         </div>
     </footer>
-    
+
 </body>
+
 </html>

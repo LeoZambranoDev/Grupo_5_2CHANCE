@@ -16,15 +16,27 @@
 
     .form-login{
         border: blue solid;
+        border-radius: 10px;
+        background-color: #ebebeb;
         display:flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 80%;
+        height: 40vh;
     }
 
     .form-login input{
         width: 200px;
         height: 35px;
         margin: 10px auto 10px auto;
+        border-radius: 5px;
+        border: none;
+    }
+
+    .form-login button{
+        width: 200px;
+        height: 35px;
     }
 
     .form-login input::placeholder{
@@ -33,3 +45,13 @@
     }
 
 /* Form Login Css */
+
+/* Media queries */
+
+@media (min-width: 768px) {
+    .form-login input{
+        width: 350px;
+    }
+}
+
+/* Media queries */
