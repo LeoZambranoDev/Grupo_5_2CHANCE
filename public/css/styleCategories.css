@@ -56,6 +56,7 @@ header{
   width: 45px;
   height: 45px;
 }
+
 /* header */
 
 /* main */
@@ -176,7 +177,7 @@ main {
   }
   .main-article {
         margin-top: 10px;
-        border-top: 1px solid #DCDCDC; 
+        border-top: 1px solid #E7E2E2; 
     
 }
 /* main */
@@ -213,9 +214,7 @@ footer{
   .products article {
       width: 30%;
   }
-  .products article img {
-    height: 200px;
-  }
+  
 }
 @media (min-width: 768px){
   .products article  {
