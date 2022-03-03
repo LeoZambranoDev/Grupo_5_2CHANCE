@@ -2,37 +2,20 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styleCategories.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- metas and lynks -->
+    <%- include('./partials/metasBasics') %>
+    <!-- metas and lynks -->
+    
+    <link rel="stylesheet" href="/css/styleCategories.css">
     <title>Inicio</title>
 </head>
 
 <body>
 
-    <header>
-        <div class="navBar">
-            <div class="menuBurguer"><i class="fa-solid fa-bars"></i></div>
-
-            <div class="logo">
-                <img src="img/logoProvisional2.png" alt="logo">
-            </div>
-
-            <div class="content-right">
-                <form class="formBusqueda" action="">
-                    <input type="text">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-                <div class="carShop"><i class="fa-solid fa-cart-shopping"></i></div>
-                <div class="message"><i class="fa-solid fa-inbox"></i></div>
-            </div>
-        </div>
-    </header>
-
+    <!-- header -->
+    <%- include('./partials/header') %>
+    <!-- header -->
 
     <main>
         <section class="filters">
@@ -197,25 +180,10 @@
             </article>
         </section>
     </main>
-    <footer>
-        <div class="footer">
-            <div class="logoFooter"><img src="img/logoProvisional2.png" alt="logo"></div>
-            <div>
-                <ul>
-                    Información
-                    <li>Bueno</li>
-                    <li>Bonito</li>
-                    <li>Barato</li>
-                </ul>
-            </div>
-            <div>
-                <p>REDES</p>
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-reddit"></i>
-            </div>
-        </div>
-    </footer>
+
+    <!-- footer -->
+    <%- include('./partials/footer') %>
+    <!-- footer -->
 
 </body>
 
