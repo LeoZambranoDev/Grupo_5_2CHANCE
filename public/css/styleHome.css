@@ -15,52 +15,76 @@ header{
 }
 
 .navBar{
-    background-color: gray;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
-    margin: auto;
+  
+      height: 70px;
+
+    top: -1px;
+    background: #23233D;
+  
+    
+    
 }
 
-.menuBurguer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 45px;
-    height: 45px;
-    background-color: black;
-    color: white;
-    font-size: 20px;
-}
 
 .logo{
-    width: 50px;
+   
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+width: 70px;
+left: 44px;
+top: 13px;
 }
 .logo img{
-    width: 100%;
+    width: 80%;
 }
 
 .formBusqueda{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 290px;
+    height: 40px;
+    margin-right: 5px;
+    background: #FFFFFF;
+    border-radius: 30px;
 }
+.formBusqueda button {
+    border-color: transparent;
+    background: #FFFFFF;
+    font-size: 22px;
+    margin-right: 5px;
+    border-radius: 30px;
+    color: #AFB0B3;
+} 
+.formBusqueda .bar {
+    border-color: transparent;
+    background: #FFFFFF;
+    font-size: 22px;
+    margin-left: 10px;
+    border-radius: 30px;
+    height: 38px;
+   
+} 
 
 .content-right{
     display: none;
     color: white;
+    font-size: 22px;
+    margin-right: 2em;
 }
 
-.message, .carShop{
+.user, .carShop, .question{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 45px;
-    height: 45px;
+    width: 70px;
+ 
 }
 /* header */
 
