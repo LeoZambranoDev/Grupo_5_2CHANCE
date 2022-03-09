@@ -36,7 +36,7 @@ header{
     justify-content: center;
     align-items: center;
     position: absolute;
-width: 70px;
+width: 90px;
 left: 44px;
 top: 13px;
 }
@@ -96,15 +96,19 @@ top: 13px;
 
 /* footer */
 footer{
-    background-color: gray;
-    color: white;
+    background-color: #F6F6F6;
+    color: #27293B;
+   height: 15rem;
+   
 }
-.footer{
-    background-color: gray;
+.content-footer{
+    background-color: #F6F6F6;
     display: flex;
     justify-content: space-around;
     width: 90%;
-    margin: auto;
+    align-items: center;
+    height: 15rem;
+   
 }
 
 .logoFooter{
