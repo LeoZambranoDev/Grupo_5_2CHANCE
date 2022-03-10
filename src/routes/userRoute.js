@@ -3,7 +3,7 @@ let express =require('express')
 let router = express.Router()
 
 
-//controlador del objeto literal main(mainController.js)
+//controlador del objeto literal user(userController.js)
 const userController=require('../controllers/userController')
 
 
