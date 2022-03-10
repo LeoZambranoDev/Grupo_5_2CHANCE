@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    
+    <!-- metas and lynks -->
+    <%- include('../partials/metasBasics') %>
+    <!-- metas and lynks -->
+
+    <link rel="stylesheet" href="/css/product/update.css" />
+    <title>Inicio</title>
+  </head>
+
+  <body>
+    
+    <!-- header -->
+    <%- include('../partials/header') %>
+    <!-- header -->
+
+    <main>
+      <div class="container-product-update">
+          <form  class="form-product-update" action="">
+              <input type="text" placeholder="Nombre del producto">
+              <input type="text" placeholder="Categoría">
+              <input type="text" placeholder="Color">
+              <input type="text" placeholder="Marca">
+              <input type="text" placeholder="Memoria">
+              <input type="text" placeholder="Precio">
+              <input type="file" name="imgsCel" id="imgsCel" accept="image/jpg, image/jpeg, image/png" multiple>
+              <button type="submit">Registrar</button>
+          </form>
+      </div>
+  </main>
+
+     <!-- footer -->
+     <%- include('../partials/footer') %>
+     <!-- footer -->
+    
+  </body>
+</html>
