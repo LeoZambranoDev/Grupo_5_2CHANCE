@@ -20,6 +20,7 @@ app.set('views',path.resolve(__dirname+'/src/views'))
 //Enrutadores
 let mainRoute= require('./src/routes/mainRoute')
 let userRoute= require('./src/routes/userRoute')
+let productRoute= require('./src/routes/productRoute')
 
 //Ruta home
 app.use('/',mainRoute)
@@ -27,6 +28,11 @@ app.use('/',mainRoute)
 
 //Ruta Users
 app.use('/user',userRoute)
+
+//Rutas products
+app.use('/product',productRoute)
+
+
 
 //Por definir(TEMPORALMENTE EN MAIN)
 app.use('/categories',mainRoute)
