@@ -5,10 +5,10 @@ const main={
         res.render('home')
     },
     categories:(req,res)=>{
-        res.render('categories')
+        res.render('./productViews/categories')
     },
     detail:(req,res)=>{
-        res.render('detalle')
+        res.render('./productViews/detalle')
     },
 }
 
