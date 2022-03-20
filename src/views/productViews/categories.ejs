@@ -113,72 +113,20 @@
                 </article>
             </form>
         </section>
-        <section class="products">
-            <article class="cellphone">
-                <img src="img/GalaxyNote10Lite.jpg" alt="samsung" class="product_img">
-                <div class="main-article">
-                    <p class="price">$1.250.000</p>
-                </div>
-                <h4 class="description">Galaxy Note 10 Lite</h4>
-                </div>
-            </article>
-            <article class="cellphone">
-                <img src="img/iPhone8Plus.jpg" alt="iphone" class="product_img">
-                <div class="main-article">
-                    <p class="price">$1.400.000</p>
-                </div>
-                <h4 class="description">iPhone 8 Plus</h4>
-                </div>
-            </article>
-            <article class="cellphone">
-                <img src="img/HuaweiY7.jpg" alt="huawei" class="product_img">
-                <div class="main-article">
-                    <p class="price">$340.000</p>
-                </div>
-                <h4 class="description">Huawei Y7</h4>
-                </div>
-            </article>
-            <article class="cellphone">
-                <img src="img/OppoA54.jpg" alt="oppo" class="product_img">
-                <div class="main-article">
-                    <p class="price">$800.000</p>
-                </div>
-                <h4 class="description">Oppo A54</h4>
-                </div>
-            </article>
-            <article class="cellphone">
-                <img src="img/SonyXperia.jpg" alt="sony" class="product_img">
-                <div class="main-article">
-                    <p class="price">$510.000</p>
-                </div>
-                <h4 class="description">Sony Xperia F3113</h4>
-                </div>
-            </article>
-            <article class="cellphone">
-                <img src="img/RealmeGt5g.jpg" alt="realme" class="product_img">
-                <div class="main-article">
-                    <p class="price">$2.000.000</p>
-                </div>
-                <h4 class="description">Realme Gt 5g</h4>
-                </div>
-            </article>
-            <article class="cellphone">
-                <img src="img/LGK10Lte.jpg" alt="lg" class="product_img">
-                <div class="main-article">
-                    <p class="price">$400.000</p>
-                </div>
-                <h4 class="description">LG K10 LTE</h4>
-                </div>
-            </article>
-            <article class="cellphone">
-                <img src="img/MotorolaNexus6.jpg" alt="motorola" class="product_img">
-                <div class="main-article">
-                    <p class="price">$200.000</p>
-                </div>
-                <h4 class="description">Motorola Nexus 6</h4>
-                </div>
-            </article>
-        </section>
+      
+            <section class="products">
+                <% for(let i=0; i<products.length; i++){ %>
+                <article class="cellphone">
+                    <img src= "img/products/<%= products[i].product_img %>" class="product_img">
+                    <div class="main-article">
+                        <p class="price"><%= products[i].price %></p>
+                    </div>
+                    <h4 class="name"><%= products[i].name %></h4>
+                    </div>
+                </article>
+                <% } %>
+            </section>
+     
     </main>
 
     <!-- footer -->
