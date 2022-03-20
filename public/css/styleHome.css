@@ -29,7 +29,6 @@ header{
     
 }
 
-
 .logo{
    
     display: flex;
@@ -87,6 +86,81 @@ top: 13px;
  
 }
 /* header */
+
+
+/* MAIN */
+
+.slider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    min-height: 90vh;
+    background: linear-gradient(338.58deg, #28F8D3 6.21%, rgba(0, 70, 205, 0.78) 89.52%);
+}
+
+.fi{
+    display: none;
+}
+.up{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.down{
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+}
+.down label{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 20px;
+}
+
+.slider div a{
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid #23233D;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 28px;
+    color: black;
+    font-weight: 600;
+}
+
+.checks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.checks input{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.miniCards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .card{
+    
+} */
+
+/* /MAIN */
+
+
+
+
+
 
 .options {
     text-align: center;
