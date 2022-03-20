@@ -21,14 +21,14 @@
     <!-- NOTA IMPORTANTE: se debe terminar de agregar o eliminar campos, volverlos más específicos -->
     <main>
         <div class="container-product-register">
-            <form  class="form-product-register" action="">
-                <input type="text" placeholder="Nombre del producto">
-                <input type="text" placeholder="Categoría">
-                <input type="text" placeholder="Color">
-                <input type="text" placeholder="Marca">
-                <input type="text" placeholder="Memoria">
-                <input type="text" placeholder="Precio">
-                <input type="file" name="imgsCel" id="imgsCel" accept="image/jpg, image/jpeg, image/png" multiple>
+            <form  class="form-product-register" action="/product" method="POST" enctype="multipart/form-data">
+                <input type="text" name="name" placeholder="Nombre del producto">
+                <!-- <input type="text" placeholder="Categoría"> -->
+                <!-- <input type="text" placeholder="Color"> -->
+                <!-- <input type="text" placeholder="Marca"> -->
+                <!-- <input type="text" placeholder="Memoria"> -->
+                <input type="text" name="price" placeholder="Precio">
+                <input type="file" name="imgCel" id="imgCel" accept="image/jpg, image/jpeg, image/png" >
                 <button type="submit">Registrar</button>
             </form>
         </div>

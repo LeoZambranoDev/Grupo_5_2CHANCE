@@ -8,6 +8,10 @@ const path=require('path');
 //Configuramos la carpeta public
 app.use(express.static(path.resolve('public')))
 
+//OVERRIDE
+const methodOverride =  require('method-override');
+app.use(methodOverride('_method'));
+
 //Listen para que el server se mantenga escuchando al puerto
 app.listen(process.env.PORT || 8000,() => console.log('Server running in 8000 port'));
 

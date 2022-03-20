@@ -18,14 +18,14 @@
 
     <main>
       <div class="container-product-update">
-          <form  class="form-product-update" action="">
-              <input type="text" placeholder="Nombre del producto">
-              <input type="text" placeholder="Categoría">
-              <input type="text" placeholder="Color">
-              <input type="text" placeholder="Marca">
-              <input type="text" placeholder="Memoria">
-              <input type="text" placeholder="Precio">
-              <input type="file" name="imgsCel" id="imgsCel" accept="image/jpg, image/jpeg, image/png" multiple>
+          <form  class="form-product-update" action="/product/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
+              <input type="text" name="name" placeholder="Nombre del producto" value="<%= product.name %>">
+              <!-- <input type="text" placeholder="Categoría"> -->
+              <!-- <input type="text" placeholder="Color"> -->
+              <!-- <input type="text" placeholder="Marca"> -->
+              <!-- <input type="text" placeholder="Memoria"> -->
+              <input type="text" name="price" placeholder="Precio" value="<%= product.price %>">
+              <input type="file" name="imgCel" id="imgsCel" accept="image/jpg, image/jpeg, image/png" >
               <button type="submit">Registrar</button>
           </form>
       </div>

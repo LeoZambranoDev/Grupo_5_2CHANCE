@@ -15,17 +15,13 @@ header{
 }
 
 .navBar{
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-  
-      height: 70px;
-
+    height: 70px;
     top: -1px;
     background: #23233D;
   
-    
     
 }
 
@@ -35,10 +31,11 @@ header{
     justify-content: center;
     align-items: center;
     position: absolute;
-width: 90px;
-left: 44px;
-top: 13px;
+    width: 90px;
+    left: 44px;
+    top: 13px;
 }
+
 .logo img{
     width: 80%;
 }
@@ -68,7 +65,6 @@ top: 13px;
     margin-left: 10px;
     border-radius: 30px;
     height: 38px;
-   
 } 
 
 .content-right{
@@ -83,7 +79,6 @@ top: 13px;
     justify-content: center;
     align-items: center;
     width: 70px;
- 
 }
 /* header */
 
