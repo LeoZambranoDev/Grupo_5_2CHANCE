@@ -11,3 +11,10 @@ Sprint 3
 3. Continuar haciendo: continuar estructurando de manera organizada las tareas en Trello, ya que son claras y diferencian responsabilidades. Continuar la organización de los canales de slack establecidos para los diferentes objetivos (enlaces, general, etc). Reunirnos los días de las clases con Digital.
 4. Hacer menos: no esperar a la segunda semana del sprint para compartir nuestros cambios.
 5. Dejar de hacer: dejar de usar el canal informal (Telegram) y quedarnos solo con Slack.
+
+Sprint 4
+1. Comenzar a hacer: culminar los CSS y definir quiénes continúan en el grupor
+2. Hacer más: desarrollar las actividades de mayor dificultad de manera grupal sincrónico
+3. Continuar haciendo: continuar estructurando de manera organizada las tareas en Trello, ya que son claras y diferencian responsabilidades. Continuar la organización de los canales de slack establecidos para los diferentes objetivos (enlaces, general, etc). Reunirnos los días de las clases con Digital.
+4. Hacer menos: no aplica
+5. Dejar de hacer: no aplica 

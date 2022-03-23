@@ -1,0 +1,10 @@
+[
+    {"id": 0,
+    "firstName": "Pepito",
+    "lastName": "Pérez",
+      "email" : "pepito@gmail.com",
+      "address": "calle123",
+      "type": "vendedor",
+      "image": "imagen.jpg"
+    }
+]
