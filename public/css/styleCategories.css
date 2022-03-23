@@ -83,7 +83,7 @@ main {
     width: 100%; 
   }
   
-  .slider {
+  .sliderCategories {
     -webkit-appearance: none;  
     appearance: none;
     width: 90%; 
@@ -94,10 +94,10 @@ main {
     -webkit-transition: .2s;
     transition: opacity .2s;
   }  
-  .slider:hover {
+  .sliderCategories:hover {
     opacity: 1; 
   }
-  .slider::-webkit-slider-thumb {
+  .sliderCategories:-webkit-slider-thumb {
     -webkit-appearance: none; 
     appearance: none;
     width: 25px; 
@@ -106,7 +106,7 @@ main {
     cursor: pointer; 
   }
   
-  .slider::-moz-range-thumb {
+  .sliderCategories::-moz-range-thumb {
     width: 25epx; 
     height: 2; 
     background: #04AA6D; 
