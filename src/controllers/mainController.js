@@ -14,6 +14,9 @@ const main={
     detail:(req,res)=>{
         res.render('./productViews/detalle')
     },
+    shopingCart:(req,res)=>{
+        res.render('./productViews/shopCart')
+    }
 }
 
 

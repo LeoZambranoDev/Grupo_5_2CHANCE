@@ -1,11 +1,5 @@
 [
  {
-  "id": 1,
-  "name": "Galaxy Note 10 Lite",
-  "price": "$1.250.000",
-  "product_img": "GalaxyNote10Lite.jpg"
- },
- {
   "id": 2,
   "name": "iPhone 8 Plus",
   "price": "$1.400.000",
@@ -40,11 +34,5 @@
   "name": "LG K10 LTE",
   "price": "$400.000",
   "product_img": "LGK10Lte.jpg"
- },
- {
-  "id": 8,
-  "name": "Motorola Nexus 6",
-  "price": "$200.000",
-  "product_img": "MotorolaNexus6.jpg"
  }
 ]
