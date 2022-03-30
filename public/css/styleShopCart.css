@@ -1,0 +1,46 @@
+body{
+    
+        margin: 0px;
+        padding: 0px;
+    
+    /* body */
+    
+}
+
+
+.card{
+    position: relative;
+}
+
+.card-text .pay1{
+    margin-top: 15px;
+    background-color: rgb(251, 251, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid #23233D;
+    border-radius: 20px;
+    width: 80%;
+    height: 35px;
+    
+}
+
+
+.content-body{
+    background-color: #23233D;
+    display: flex;
+        margin-top: 30px;
+        
+        padding: 20px;
+        justify-content: space-around;
+}
+.contain-menu-2{
+    padding: 10px;
+    border-bottom: 5px solid rgb(24, 173, 199);
+}
+.h3-carrusel{
+    text-align: center;
+    background-color: #fff;
+    color: black;
+    
+    margin: 0px;
+    padding: 5px;
+}
