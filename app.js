@@ -51,7 +51,7 @@ app.use('/detail',mainRoute)
 // })
 
 //POR DEFINIR(TEMPORALMENTE EN MAIN)
-app.use('/shopingCart',mainRoute)
+//app.use('/shopingCart',mainRoute)
 // app.get('/detalle',(req,res)=>{
 //     res.sendFile(path.resolve('views/detalle.html'))
 // })
