@@ -1,21 +1,40 @@
 const path =require('path')
 const fs= require('fs')
 
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
 
 const product={
+	//Función encargada de obtener la lista de los productos
+	getProducts:()=>{
+		let productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+		return JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+	},
+	getProductById:function(id){
+		let products=this.getProducts()
+		let product=products.find(element=>{
+			return element.id==id
+		})
+		return product
+	},
+	getProductByCategory:function(cat){
+		let products=this.getProducts()
+		let product=products.filter(element=>{
+			return element.category==cat
+		})
+		return product
+	},
     //se ocupa el método render para trabajar con view engine EJS
     register:(req,res)=>{
         res.render('./productViews/register')
     },
+	//Se encarga de enviar y mostrar en la vista editar un producto
     update:(req,res)=>{
-        let product = products.find(ele=>
-             ele.id==req.params.id
-        )
+		let products=this.getProducts()
+		console.log(products);
+        // let product = products.find(ele=>
+        //      ele.id==req.params.id
+        // )
 
-        res.render('./productViews/update',{product})
+        // res.render('./productViews/update',{product})
     },
     store:(req,res)=>{  //ADD PRODUCT   //NOTA: terminar
 
@@ -70,7 +89,6 @@ const product={
     },
     
 }
-
 
 
 module.exports=product;
