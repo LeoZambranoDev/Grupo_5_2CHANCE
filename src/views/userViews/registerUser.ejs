@@ -7,7 +7,7 @@
     <%- include('../partials/metasBasics') %>
     <!-- metas and lynks -->
 
-    <link rel="stylesheet" href="/css/styleRegister.css">
+    <link rel="stylesheet" href="/css/user/styleRegister.css">
     <title>Registrarme</title>
 </head>
 
@@ -21,13 +21,17 @@
     <main>
 
         <div class="contentRegister">
+            <div class="title-register">
+                CREA TU CUENTA
+            </div>
             <form class="formRegisterUser" action="">
-                <input type="text" placeholder="Usuario">
-                <input type="email" placeholder="Correo">
-                <input type="password" placeholder="Contraseña">
-                <input type="password" placeholder="Confirmar contraseña">
-                <div><input type="checkbox" name="terminos" id="terminos"> <label for="terminos">Aceptar términos y condiciones</label></div>
-                <div><input type="checkbox" name="ofertas" id="ofertas"><label for="ofertas">Deseo recibir ofertas en mi correo</label> </div>
+                <div class="title-register2">INFORMACIÓN PERSONAL</div>
+                <input type="text" placeholder="Ingresa tu usuario">
+                <input type="email" placeholder="Ingresa tu correo">
+                <input type="password" placeholder="Ingresa tu contraseña">
+                <input type="password" placeholder="Confirma tu contraseña">
+                <div class="check"><input type="checkbox" name="terminos" id="terminos"> <label for="terminos">Aceptar términos y condiciones</label></div>
+                <div class="check"><input type="checkbox" name="ofertas" id="ofertas"><label for="ofertas">Deseo recibir ofertas en mi correo</label> </div>
                 <button type="submit">Registrarme</button>
             </form>
 
