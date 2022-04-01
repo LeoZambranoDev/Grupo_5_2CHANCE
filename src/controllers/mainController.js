@@ -1,12 +1,14 @@
 const fs = require('fs');
 const path =require('path');
-// para configurar la base de datos provisional:
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+const productController=require('./productController')
+
 const main={
     //se ocupa el método render para trabajar con view engine EJS
     index:(req,res)=>{
-        res.render('home')
+        let products=productController.getProductByCategory('destacado')
+        let productPro=productController.getProductById(8)// producto temporal
+        res.render('home',{products,productPro})
     },
     categories:(req,res)=>{
         res.render('./productViews/categories', {products})
