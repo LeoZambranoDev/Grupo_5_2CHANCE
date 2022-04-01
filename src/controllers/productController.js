@@ -27,14 +27,17 @@ const product={
         res.render('./productViews/register')
     },
 	//Se encarga de enviar y mostrar en la vista editar un producto
-    update:(req,res)=>{
+    update:function(req,res){
 		let products=this.getProducts()
-		console.log(products);
-        // let product = products.find(ele=>
-        //      ele.id==req.params.id
-        // )
+		
+        let product = products.find(ele=>
+             ele.id==req.params.id
+        )
+		if(product!= -1){
+			res.render('./productViews/update',{product})
+		}
+		res.send('Error, no se ha encontrado el teléfono correspondiente al id'+req.params.id)
 
-        // res.render('./productViews/update',{product})
     },
     store:(req,res)=>{  //ADD PRODUCT   //NOTA: terminar
 
