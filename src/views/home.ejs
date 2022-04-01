@@ -18,20 +18,21 @@
     <main>
 
         <div class="slider">
-            <div class="up">
-                <!-- <div><i class="fi fi-rr-angle-left"></i></div> -->
-                <div><img src="/img/home/cel-slider.png" alt="imagen de teléfono" width="150px" srcset=""></div>
-                <!-- <div><i class="fi fi-rr-angle-right"></i></div> -->
-            </div>
-            <div class="down">
-                <div>
-                    <label>Nombre del teléfono</label>
+            <% if (productPro) { %>
+                <div class="up">
+                    <div><img src="/img/products/<%= productPro.product_img %> " alt="imagen de teléfono"  srcset=""></div>
                 </div>
-                <div>
-                    <label>Precio</label>
+                <div class="down">
+                    <div class="nombre">
+                        <label><%= productPro.name %></label>
+                    </div>
+                    <div>
+                        <label class="precio"><%= productPro.price %></label>
+                    </div>
                 </div>
-            </div>
-            <div><a href="#">Ver más</a></div>
+                <div><a href="/product/detail/<%= productPro.id %>">Ver más</a></div>
+            <% } %>
+            
         </div>
         <section class="checks">
             <div> <input type="radio" name="radio" id=""> </div>
@@ -39,10 +40,23 @@
             <div> <input type="radio" name="radio" id=""> </div>
         </section>
 
-        <section class="miniCards">
-            <div class="card">
-                
+        <section class="destacados">
+            <div class="title-destacados">
+                DESTACADOS
             </div>
+            <% products.forEach(element => { %>
+             <div class="item-destacado">
+                <img src="/img/products/<%= element.product_img %>" alt="">
+                <div class="nombre">
+                    <a href="/product/detail/<%= element.id %>"><%= element.name %> </a>
+                </div>
+                <div class="precio">
+                   $ <%= element.price %> 
+                </div>
+            </div>
+            <% }) %>
+            
+            
         </section>
 
         <br><br><br><br><br>
