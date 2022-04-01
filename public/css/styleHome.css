@@ -37,7 +37,7 @@ header{
 }
 
 .logo img{
-    width: 80%;
+    width: 100%;
 }
 
 .formBusqueda{
@@ -46,6 +46,7 @@ header{
     align-items: center;
     width: 290px;
     height: 40px;
+    margin-top: 6px;
     margin-right: 5px;
     background: #FFFFFF;
     border-radius: 30px;
@@ -74,11 +75,43 @@ header{
     margin-right: 2em;
 }
 
-.user, .carShop, .question{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70px;
+
+.content-right li{
+    position: relative;
+    display: inline-block;    
+    list-style: none;
+      }
+
+.content-right img{
+display: block;
+padding: 15px 20px;
+      }
+
+.content-right img:hover{
+    filter: opacity(0.4) drop-shadow(0 0 0 #0DA2E0);
+    transition: all .3s;
+}
+
+
+.login-register {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+.login-register li a{
+    display: block;
+    padding: 5px;
+    color: #F6F6F6;
+    text-decoration: none;
+}
+.content-right .user:hover .login-register{
+   visibility: visible;
+   opacity: 1;
+}
+.login-register li a:hover{
+    color: #23233D;
+    transition: all .3s;
 }
 /* header */
 
