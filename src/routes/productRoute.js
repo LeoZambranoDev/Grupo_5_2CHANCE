@@ -24,7 +24,7 @@ const productController=require('../controllers/productController')
 
 //RUTAS
 router.get('/register',productController.register) // view register
-router.get('/:id',productController.update)     //view update
+router.get('/update/:id',productController.update)     //view update
 router.post('/',upload.single('imgCel'),productController.store)    // add product
 
 router.put('/:id',upload.single('imgCel'),productController.updateProduct)      //update product
