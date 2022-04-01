@@ -105,12 +105,15 @@ header{
     justify-content: center;
     width: 100%;
 }
+.up img{
+    width: 250px;
+}
 .down{
     width: 100%;
     flex-direction: column;
     text-align: center;
 }
-.down label{
+.down .nombre, .down .precio{
     font-weight: 600;
     font-size: 24px;
     line-height: 20px;
@@ -140,10 +143,52 @@ header{
     margin-right: 5px;
 }
 
-.miniCards{
+.title-destacados{
+    text-align: center;
+    line-height: 28px;
+    font-weight: 600;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+
+.destacados{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.item-destacado{
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.item-destacado img{
+    border-radius: 20px 20px 0px 0px;
+    width: 100%;
+}
+
+
+.item-destacado .precio{
+    color: #FF9900;
+    margin-top: 5px;
+}
+.nombre a{
+    text-decoration: none;
+    color: #000;
+    text-decoration-line: none;
+    margin-top: 5px;
+}
+.nombre{
+    text-align: center;
 }
 
 /* .card{
@@ -151,6 +196,7 @@ header{
 } */
 
 /* /MAIN */
+
 
 
 
@@ -200,4 +246,54 @@ footer{
         justify-content: center;
         align-items: center;
     }
+
+    .title-destacados{
+        font-size: 40px;
+    }
+    .destacados{
+        font-size: 40px;
+    }
+    .up div{
+        display: flex;
+        justify-content: center;
+    }
+
+    .up img{
+        width: 80%;
+    }
+    .down .precio, .down .nombre{
+        font-size: 60px;
+    }
+    .down .precio{
+        margin-top: 50px;
+    }
+    .down .nombre{
+        margin-bottom: 50px;
+    }
+    
+}
+
+
+
+@media (min-width: 1200px) {
+
+    .destacados{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .title-destacados{
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .item-destacado{
+        width: 25%;
+        margin: auto;
+    }
+    .up {
+        width: 70%;
+    }
+    .up img{
+        width: 60%;
+    }
+
 }
