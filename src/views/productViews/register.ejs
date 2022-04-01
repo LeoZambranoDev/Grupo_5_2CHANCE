@@ -1,42 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    
-    <!-- metas and lynks -->
-    <%- include('../partials/metasBasics') %>
+
+<head>
+
+  <!-- metas and lynks -->
+  <%- include('../partials/metasBasics') %>
     <!-- metas and lynks -->
 
     <link rel="stylesheet" href="/css/product/register.css" />
     <title>Inicio</title>
-  </head>
+</head>
 
-  <body>
-    
-    <!-- header -->
-    <%- include('../partials/header') %>
+<body>
+
+  <!-- header -->
+  <%- include('../partials/header') %>
     <!-- header -->
 
 
     <!-- NOTA IMPORTANTE: se debe terminar de estilar -->
     <!-- NOTA IMPORTANTE: se debe terminar de agregar o eliminar campos, volverlos más específicos -->
     <main>
-        <div class="container-product-register">
-            <form  class="form-product-register" action="/product" method="POST" enctype="multipart/form-data">
-                <input type="text" name="name" placeholder="Nombre del producto">
-                <!-- <input type="text" placeholder="Categoría"> -->
-                <!-- <input type="text" placeholder="Color"> -->
-                <!-- <input type="text" placeholder="Marca"> -->
-                <!-- <input type="text" placeholder="Memoria"> -->
-                <input type="text" name="price" placeholder="Precio">
-                <input type="file" name="imgCel" id="imgCel" accept="image/jpg, image/jpeg, image/png" >
-                <button type="submit">Registrar</button>
-            </form>
-        </div>
+      <div class="container-product-register">
+        <form class="form-product-register" action="/product" method="POST" enctype="multipart/form-data">
+          <input type="text" name="name" placeholder="Nombre del producto">
+          <div>
+            <select name="" id="">
+              <option value="">Destacado</option>
+              <option value="">En oferta</option>
+              <option value="">Otro</option>
+            </select>
+          </div>
+
+          <div>
+            <select name="" id="">
+              <option value="">Azul</option>
+              <option value="">Rojo</option>
+              <option value="">Negro</option>
+            </select>
+          </div>
+          <div>
+            <select name="" id="">
+              <option value="">Samsung</option>
+              <option value="">Motorola</option>
+              <option value="">Iphone</option>
+              <option value="">Xiaomi</option>
+            </select>
+          </div>
+          <input type="text" name="price" placeholder="Precio">
+          <input type="file" name="imgCel" id="imgCel" accept="image/jpg, image/jpeg, image/png">
+          <div>
+            <textarea name="" id="" ></textarea>
+          </div>
+          <button type="submit">Registrar</button>
+        </form>
+      </div>
     </main>
 
-     <!-- footer -->
-     <%- include('../partials/footer') %>
-     <!-- footer -->
-    
-  </body>
+    <!-- footer -->
+    <%- include('../partials/footer') %>
+      <!-- footer -->
+
+</body>
+
 </html>
