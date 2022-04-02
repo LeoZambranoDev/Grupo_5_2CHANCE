@@ -6,7 +6,7 @@
     <%- include('../partials/metasBasics') %>
     <!-- metas and lynks -->
 
-    <link rel="stylesheet" href="/css/styledetalle.css" />
+    <link rel="stylesheet" href="/css/product/detalle.css" />
     <title>Inicio</title>
   </head>
 
@@ -17,46 +17,51 @@
     <!-- header -->
 
     <main>
-      <div>
-        <img class="celu1" src="img/motorolaNexus6.jpg" />
-        <img class="celu2" src="img/sonyXperia.jpg" />
-
-        <div class="detalle">
-          <b class="hola">Motorola Nexus 6 32 Gb Blanco Nube 3 Gb Ram</b>
-          <p id="precio">$ 255.000</p>
-          <table>
-            <tr>
-              <td>Memoria</td>
-              <td>Ram</td>
-              <td>Cámara</td>
-              <td>Pantalla</td>
-              <td>Batería</td>
-            </tr>
-            <tr>
-              <td>32Gb</td>
-              <td>3</td>
-              <td>16 Píxeles</td>
-              <td>6 Pulgadas</td>
-              <td>3220 mAh</td>
-            </tr>
-          </table>
-          <div class="lleva">
-          <div class="button">
-            <button name="carrito" type="button">Carrito de compras</button>
-            <div class="truck">
-              <i class="fas fa-truck truck"></i>
-            </div>
-          </div>
+      
+      <div class="container-detail">
+        <div class="div-marca">
+          <a class="marca" href="#">MarcaCelular</a> 
         </div>
-          <div>
-            <label>Color</label>
-            <select name="perfil" id="perfil">
-              <option value="Blanco">Blanco</option>
-              <option value="Negro">Negro</option>
-            </select>
-          </div>
+        <div class="nombre">
+          Nombre celular
         </div>
+        <div class="img">
+          <img src="/img/products/GalaxyNote10Lite.jpg" alt="">
+        </div>
+        <div class="precio">
+         $ 123.123
+        </div>
+        <a class="btn-comprar">COMPRAR</a>
+        <a class="btn-agregar">AGREGAR AL CARRITO</a>
       </div>
+      <div class="caracts">
+        <div class="title-caract">Características del producto</div>
+        <div class="caracteristicas"><span class="dot"></span> Característica 1    <div class="valor">Valor</div></div>
+        <div class="caracteristicas"><span class="dot"></span> Característica 2    <div class="valor">Valor</div></div>
+        <div class="caracteristicas"><span class="dot"></span> Característica 3    <div class="valor">Valor</div></div>
+        <div class="caracteristicas"><span class="dot"></span> Característica 4    <div class="valor">Valor</div></div>
+      </div>
+
+
+      <section class="interes">
+        <div class="title-interes">
+            TE PUEDE INTERESAR
+        </div>
+        <% products.forEach(element => { %>
+         <div class="item-destacado">
+            <img src="/img/products/<%= element.product_img %>" alt="">
+            <div class="nombre">
+                <a href="/product/detail/<%= element.id %>"><%= element.name %> </a>
+            </div>
+            <div class="precio">
+               $ <%= element.price %> 
+            </div>
+        </div>
+        <% }) %>
+        
+        
+    </section>
+
     </main>
 
      <!-- footer -->

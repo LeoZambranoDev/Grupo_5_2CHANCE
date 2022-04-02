@@ -15,7 +15,9 @@ const main={
         res.render('./productViews/categories', {products})
     },
     detail:(req,res)=>{
-        res.render('./productViews/detalle')
+        
+        let products=productModel.getProductByCategory('destacado')
+        res.render('./productViews/detalle',{products})
     },
     shopingCart:(req,res)=>{
         res.render('./productViews/shopCart')
