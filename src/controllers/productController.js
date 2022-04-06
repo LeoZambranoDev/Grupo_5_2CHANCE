@@ -8,7 +8,7 @@ const product={
         res.render('./productViews/register')
     },
 	//Se encarga  mostrar en la vista editar el producto por id
-    update:function(req,res){
+    update:(req,res)=>{
         let product = productModel.getProductById(req.params.id)
 		if(product){
 			res.render('./productViews/update',{product})
