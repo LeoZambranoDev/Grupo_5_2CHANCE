@@ -1,10 +1,14 @@
 [
-    {"id": 0,
-    "firstName": "Pepito",
-    "lastName": "Pérez",
-      "email" : "pepito@gmail.com",
-      "address": "calle123",
-      "type": "vendedor",
-      "image": "imagen.jpg"
-    }
+ {
+  "id": 0,
+  "firstName": "Pepito",
+  "lastName": "Pérez",
+  "nick": "Pepito",
+  "email": "pepito@gmail.com",
+  "pass": "contra",
+  "address": "calle123",
+  "type": "vendedor",
+  "image": "default.jpg",
+  "status": "active"
+ }
 ]
