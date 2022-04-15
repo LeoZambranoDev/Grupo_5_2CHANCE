@@ -35,36 +35,46 @@ const product={
         res.redirect('/')
     },
     updateProduct:(req,res)=>{
+
+		//Obtenemos el nombre de la imagen "antigua" o si subió una "nueva"
+		let nameImg=req.body.imgCel_old
+		if(req.file){
+			nameImg=req.file.filename
+		}
+
+		//Creamos la variable contenedora de la nueva lista con el producto actualizado
         let auxProducts = []
-		products.forEach(x => {
-			if (x.id == req.params.id) {
-				let newProduct = {
-					"id": x.id,
+		//recorremos y agregamos los productos junto con el editado
+		productModel.getProducts().forEach(element=>{
+			if (element.id == req.params.id) {
+				auxProducts.push(
+					{
+					"id": req.params.id,
 					"name": req.body.name,
 					"price": req.body.price,
-					"product_img": req.file.filename
-				}
-				auxProducts.push(newProduct)
+					"category":req.body.category,
+					"color":req.body.color,
+					"mark":req.body.mark,
+					"memory":req.body.memory,
+					"product_img": nameImg
+				   }
+				   )
 			}
-			else {
-				auxProducts.push(x)
+			else{
+				auxProducts.push(element)
 			}
 		})
-
-		fs.writeFileSync(productsFilePath, JSON.stringify(auxProducts, null, ' '))
+		
+		//Guardamos el listado de productos en el Json
+		productModel.saveProducts(auxProducts)
 
 		res.redirect('/')
     },
     deleteProduct:(req,res)=>{
-
-		let auxProducts = []
-		products.forEach(x => {
-			if (x.id != req.params.id) {
-				auxProducts.push(x)
-			}
-		})
-
-		fs.writeFileSync(productsFilePath, JSON.stringify(auxProducts, null, ' '))
+		//obtenemos la lista y eliminamos el que corresponda con el id
+		let auxProducts = productModel.getProducts().filter(element=>(element.id != req.params.id))
+		//Guardamos el resto de elementos
+		productModel.saveProducts(auxProducts)
 
 		res.redirect('/')
     },
