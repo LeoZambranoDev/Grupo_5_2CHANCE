@@ -26,41 +26,43 @@
           enctype="multipart/form-data">
           <input type="text" name="name" placeholder="Nombre del producto" value="<%= product.name %>">
           <!-- <input type="text" placeholder="Categoría"> -->
-          <select class="select" name="" id="">
+          <select class="select" name="category" id="">
             <option value="ninguno">Categoría:</option>
-            <option value="ninguno">Ninguno</option>
-            <option value="destacado">Destacado</option>
+            <option <% if (product.category=='ninguno') { %>selected<% } %> value="ninguno">Ninguno</option>
+            <option <% if (product.category=='destacado') { %>selected<% } %> value="destacado">Destacado</option>
           </select>
           <!-- <input type="text" placeholder="Color"> -->
-          <select class="select" name="" id="">
+          <select class="select" name="color" id="">
             <option value="ninguno">Color:</option>
-            <option value="blue">Azul</option>
-            <option value="red">Rojo</option>
-            <option value="black">Negro</option>
-            <option value="white">Blanco</option>
+            <option <% if (product.color=='blue') { %>selected<% } %> value="blue">Azul</option>
+            <option <% if (product.color=='red' ) { %>selected<% } %> value="red">Rojo</option>
+            <option <% if (product.color=='black') { %>selected<% } %> value="black">Negro</option>
+            <option <% if (product.color=='white') { %>selected<% } %> value="white">Blanco</option>
           </select>
           <!-- <input type="text" placeholder="Marca"> -->
-          <select class="select" name="" id="">
+          <select class="select" name="mark" id="">
             <option value="ninguno">Marca:</option>
-            <option value="Iphone">Iphone</option>
-            <option value="Xiaomi">Xiaomi</option>
-            <option value="Samsung">Samsung</option>
-            <option value="Motorola">Motorola</option>
+            <option <% if (product.mark=='Iphone') { %>selected<% } %> value="Iphone">Iphone</option>
+            <option <% if (product.mark=='Xiaomi') { %>selected<% } %> value="Xiaomi">Xiaomi</option>
+            <option <% if (product.mark=='Samsung') { %>selected<% } %> value="Samsung">Samsung</option>
+            <option <% if (product.mark=='Motorola') { %>selected<% } %> value="Motorola">Motorola</option>
           </select>
           <!-- <input type="text" placeholder="Memoria"> -->
-          <select class="select" name="" id="">
+          <select class="select" name="memory" id="" >
             <option value="ninguno">Memoria:</option>
-            <option value="4GB">4GB</option>
-            <option value="8GB">8GB</option>
-            <option value="16GB">16GB</option>
-            <option value="32GB">32GB</option>
-            <option value="64GB">64GB</option>
-            <option value="128GB">128GB</option>
-            <option value="256GB">256GB</option>
+            <option <% if (product.memory=='4GB') { %>selected<% } %> value="4GB">4GB</option>
+            <option <% if (product.memory=='8GB') { %>selected<% } %> value="8GB">8GB</option>
+            <option <% if (product.memory=='16GB') { %>selected<% } %> value="16GB">16GB</option>
+            <option <% if (product.memory=='32GB') { %>selected<% } %> value="32GB">32GB</option>
+            <option <% if (product.memory=='64GB') { %>selected<% } %> value="64GB">64GB</option>
+            <option <% if (product.memory=='128GB') { %>selected<% } %> value="128GB">128GB</option>
+            <option <% if (product.memory=='256GB') { %>selected<% } %> value="256GB">256GB</option>
           </select>
           <input type="text" name="price" placeholder="Precio" value="<%= product.price %>">
-          <snap class="file">Imagen del dispositivo:<input type="file" class="input-file" name="imgCel" id="imgsCel" accept="image/jpg, image/jpeg, image/png"></snap>
+          <snap class="file">Imagen del dispositivo:<input type="file" class="input-file" name="imgCel" id="imgsCel" accept="image/jpg, image/jpeg, image/png" ></snap>
+          <img src="/img/products/<%= product.product_img %> " alt="">
           <div class="btn-content"><button type="submit">EDITAR</button></div>
+          <input class="oculto" type="text" value="<%= product.product_img %>" name="imgCel_old"> 
         </form>
       </div>
     </main>
