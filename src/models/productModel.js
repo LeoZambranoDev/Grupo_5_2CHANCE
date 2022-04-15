@@ -7,6 +7,7 @@ module.exports={
 		let productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 		return JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 	},
+	//Obtener producto por Id
 	getProductById:function(id){
 		let products=this.getProducts()
 		let product=products.find(element=>{
@@ -14,6 +15,7 @@ module.exports={
 		})
 		return product
 	},
+	//Obtener productos por categoría
 	getProductByCategory:function(cat){
 		let products=this.getProducts()
 		let product=products.filter(element=>{
@@ -21,4 +23,9 @@ module.exports={
 		})
 		return product
 	},
+	//Guardar listado de productos
+	saveProducts:(products)=>{
+		let productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
+	}
 }
