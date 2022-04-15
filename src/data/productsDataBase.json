@@ -3,49 +3,80 @@
   "id": 2,
   "name": "iPhone 8 Plus",
   "price": "1.400.000",
-  "category":"destacado",
+  "category": "destacado",
+  "color": "",
+  "mark": "",
+  "memory": "",
   "product_img": "iPhone8Plus.jpg"
  },
  {
   "id": 3,
   "name": "Huawei Y7",
   "price": "340.000",
-  "category":"",
+  "category": "",
+  "color": "",
+  "mark": "",
+  "memory": "",
   "product_img": "HuaweiY7.jpg"
  },
  {
   "id": 4,
   "name": "Oppo A54",
   "price": "800.000",
-  "category":"",
+  "category": "",
+  "color": "",
+  "mark": "",
+  "memory": "",
   "product_img": "OppoA54.jpg"
  },
  {
   "id": 5,
   "name": "Realme Gt 5g",
   "price": "2.000.000",
-  "category":"",
+  "category": "",
+  "color": "",
+  "mark": "",
+  "memory": "",
   "product_img": "RealmeGt5g.jpg"
  },
  {
   "id": 6,
   "name": "Sony Xperia F3113",
   "price": "510.000",
-  "category":"destacado",
+  "category": "destacado",
+  "color": "",
+  "mark": "",
+  "memory": "",
   "product_img": "SonyXperia.jpg"
  },
  {
   "id": 7,
   "name": "LG K10 LTE",
   "price": "400.000",
-  "category":"",
+  "category": "",
+  "color": "",
+  "mark": "",
+  "memory": "",
   "product_img": "LGK10Lte.jpg"
  },
  {
   "id": 8,
   "name": "Galaxy Note 10 Lite",
   "price": "700.000",
-  "category":"destacado",
+  "category": "destacado",
+  "color": "",
+  "mark": "",
+  "memory": "",
   "product_img": "GalaxyNote10Lite.jpg"
+ },
+ {
+  "id": "666",
+  "name": "Nombre de ejempo",
+  "price": "2.000.000",
+  "category": "destacado",
+  "color": "red",
+  "mark": "Iphone",
+  "memory": "8GB",
+  "product_img": "1649996873408.png"
  }
 ]
