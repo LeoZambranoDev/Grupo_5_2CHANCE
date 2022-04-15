@@ -78,7 +78,17 @@ const product={
 
 		res.redirect('/')
     },
-    
+    categoriesView:(req,res)=>{
+        let products=productModel.getProducts()
+        res.render('./productViews/categories', {products})
+    },
+    detailView:(req,res)=>{
+        let products=productModel.getProductByCategory('destacado')
+        res.render('./productViews/detalle',{products})
+    },
+    shopingCartView:(req,res)=>{
+        res.render('./productViews/shopCart')
+    }
 }
 
 
