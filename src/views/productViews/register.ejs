@@ -22,37 +22,56 @@
     <!-- NOTA IMPORTANTE: se debe terminar de agregar o eliminar campos, volverlos más específicos -->
     <main>
       <div class="container-product-register">
-        <form class="form-product-register" action="/product" method="POST" enctype="multipart/form-data">
-          <input type="text" name="name" placeholder="Nombre del producto">
-          <div>
-            <select name="" id="">
-              <option value="">Destacado</option>
-              <option value="">En oferta</option>
-              <option value="">Otro</option>
-            </select>
-          </div>
+        <div class="title-register">
+          REGISTRAR PRODUCTO: 
+        </div>
+        <form class="form-product-register" action="/product/register" method="POST"
+          enctype="multipart/form-data">
 
-          <div>
-            <select name="" id="">
-              <option value="">Azul</option>
-              <option value="">Rojo</option>
-              <option value="">Negro</option>
-            </select>
-          </div>
-          <div>
-            <select name="" id="">
-              <option value="">Samsung</option>
-              <option value="">Motorola</option>
-              <option value="">Iphone</option>
-              <option value="">Xiaomi</option>
-            </select>
-          </div>
-          <input type="text" name="price" placeholder="Precio">
-          <input type="file" name="imgCel" id="imgCel" accept="image/jpg, image/jpeg, image/png">
-          <div>
-            <textarea name="" id="" ></textarea>
-          </div>
-          <button type="submit">Registrar</button>
+          <div class="errorsList"><% if (typeof errorsList !='undefined') { %>
+            <% errorsList.forEach(element => { %>
+                <div class="error">- <%= element.msg %></div>
+            <% }) %> 
+            <% } %> 
+        </div>
+
+          <input type="text" name="name" placeholder="Nombre del producto" >
+          <!-- <input type="text" placeholder="Categoría"> -->
+          <select class="select" name="category" id="">
+            <option value="">Categoría:</option>
+            <option value="">Ninguno</option>
+            <option value="destacado">Destacado</option>
+          </select>
+          <!-- <input type="text" placeholder="Color"> -->
+          <select class="select" name="color" id="">
+            <option value="">Color:</option>
+            <option value="blue">Azul</option>
+            <option value="red">Rojo</option>
+            <option value="black">Negro</option>
+            <option value="white">Blanco</option>
+          </select>
+          <!-- <input type="text" placeholder="Marca"> -->
+          <select class="select" name="mark" id="">
+            <option value="">Marca:</option>
+            <option value="Iphone">Iphone</option>
+            <option value="Xiaomi">Xiaomi</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Motorola">Motorola</option>
+          </select>
+          <!-- <input type="text" placeholder="Memoria"> -->
+          <select class="select" name="memory" id="" >
+            <option value="">Memoria:</option>
+            <option value="4GB">4GB</option>
+            <option value="8GB">8GB</option>
+            <option value="16GB">16GB</option>
+            <option value="32GB">32GB</option>
+            <option value="64GB">64GB</option>
+            <option value="128GB">128GB</option>
+            <option value="256GB">256GB</option>
+          </select>
+          <input type="text" name="price" placeholder="Precio" >
+          <snap class="file">Imagen del dispositivo:<input type="file" class="input-file" name="imgCel" id="imgsCel" accept="image/jpg, image/jpeg, image/png" ></snap>
+          <div class="btn-content"><button type="submit">REGISTRAR</button></div>
         </form>
       </div>
     </main>
