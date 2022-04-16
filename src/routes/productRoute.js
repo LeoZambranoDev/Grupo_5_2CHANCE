@@ -9,15 +9,19 @@ const uploadProduct = require('../middleware/products/multerProduct')
 //controlador del objeto literal product(productController.js)
 const productController=require('../controllers/productController')
 
+//MIDDLEWARES
+//Validación de register
+const ValidationRegister=require('../middleware/products/ValidationRegister')
+
 //Rutas para vistas(ejs)
-router.get('/register',productController.register)              //view register
-router.get('/update/:id',productController.update)              //view update
+router.get('/register',productController.registerView)              //view register
+router.get('/update/:id',productController.updateView)              //view update
 router.get('/categories',productController.categoriesView)      //view Categories
 router.get('/detail',productController.detailView)              //view DetailProduct
 router.get('/shopingCart', productController.shopingCartView)   //view ShoppingCart
 
 //Rutas por métodos != get
-router.post('/',uploadProduct.single('imgCel'),productController.store)    // add product
+router.post('/register',uploadProduct.single('imgCel'),ValidationRegister,productController.registerProduct)    // add product
 router.put('/:id',uploadProduct.single('imgCel'),productController.updateProduct)//update product
 router.delete('/:id',productController.deleteProduct)      //delete product
 
