@@ -1,4 +1,5 @@
 const path =require('path')
+const userModel=require('../models/userModel')
 const user={
     //se ocupa el método render para trabajar con view engine EJS
     login:(req,res)=>{
@@ -13,13 +14,13 @@ const user={
         let errors=validationResult(req)
         let errorsList=errors.errors
         //Requerimos todos los usuarios almacenados para agregar el nuevo y escribirlos en en json
-        const userModel=require('../models/userModel')
+        
         let usersList=userModel.getUsers()
 
         //Verificamos incialmente la validación de los inputs del form
         if (errors.isEmpty()) {
             
-            //Vereificamos que el proceso de comparar y encriptar las contras haya salido bien(true)
+            //Verificamos que el proceso de comparar y encriptar las contras haya salido bien(true)
             if(req.body.passConfirm){
                 
                 // Verificamos que haya una imagen de perfil y asignamos en una variable para su posrterior uso

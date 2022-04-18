@@ -10,5 +10,29 @@
   "type": "vendedor",
   "image": "default.jpg",
   "status": "active"
+ },
+ {
+  "id": 2,
+  "firstName": "",
+  "lastName": "",
+  "nick": "Laura",
+  "email": "laura@correo.com",
+  "pass": "$2a$10$nWzXpQJyCoW.4huYeUyUjOJiNirf552i9FvBMJAKj9U2RcXybXGti",
+  "address": "",
+  "type": "client",
+  "image": "default.jpg",
+  "status": "active"
+ },
+ {
+  "id": 3,
+  "firstName": "",
+  "lastName": "",
+  "nick": "Ernesto Pérez",
+  "email": "ernestino@correo.com",
+  "pass": "$2a$10$oaA8V4L9LhBfr1Gp8SmIKOTlbfqEqA7aDhA3CBfiHMQGEbe24m.tC",
+  "address": "",
+  "type": "client",
+  "image": "1650313517466.png",
+  "status": "active"
  }
 ]
