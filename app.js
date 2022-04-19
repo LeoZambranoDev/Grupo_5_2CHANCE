@@ -8,6 +8,14 @@ const path=require('path');
 //Configuramos la carpeta public
 app.use(express.static(path.resolve('public')))
 
+var bodyParser = require('body-parser')
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
+
+
+
 //OVERRIDE
 const methodOverride =  require('method-override');
 app.use(methodOverride('_method'));
