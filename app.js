@@ -36,32 +36,12 @@ let mainRoute= require('./src/routes/mainRoute')
 let userRoute= require('./src/routes/userRoute')
 let productRoute= require('./src/routes/productRoute')
 
+
 //Ruta home
 app.use('/',mainRoute)
-
 
 //Ruta Users
 app.use('/user',userRoute)
 
 //Rutas products
 app.use('/product',productRoute)
-
-
-
-//Por definir(TEMPORALMENTE EN MAIN)
-app.use('/categories',mainRoute)
-// app.get('/categories',(req,res)=>{
-//     res.sendFile(path.resolve('views/categories.html'))
-// })
-
-//POR DEFINIR(TEMPORALMENTE EN MAIN)
-app.use('/detail',mainRoute)
-// app.get('/detalle',(req,res)=>{
-//     res.sendFile(path.resolve('views/detalle.html'))
-// })
-
-//POR DEFINIR(TEMPORALMENTE EN MAIN)
-//app.use('/shopingCart',mainRoute)
-// app.get('/detalle',(req,res)=>{
-//     res.sendFile(path.resolve('views/detalle.html'))
-// })
