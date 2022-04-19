@@ -5,15 +5,12 @@ const express=require('express')
 const app= express()
 //Variable para acceder a las rutas
 const path=require('path');
-var bodyParser = require('body-parser')
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-// parse application/json
-app.use(bodyParser.json())
+
 //Configuramos la carpeta public
 app.use(express.static(path.resolve('public')))
 
-var bodyParser = require('body-parser')
+//Para ocupar req.body
+const bodyParser = require('body-parser')
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
