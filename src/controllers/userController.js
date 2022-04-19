@@ -1,4 +1,5 @@
 const path =require('path')
+
 const userModel=require('../models/userModel')
 const user={
     //se ocupa el método render para trabajar con view engine EJS
@@ -16,14 +17,14 @@ const user={
         //Requerimos todos los usuarios almacenados para agregar el nuevo y escribirlos en en json
         
         let usersList=userModel.getUsers()
-
-        //Verificamos incialmente la validación de los inputs del form
+ 
+//Verificamos incialmente la validación de los inputs del form
         if (errors.isEmpty()) {
             
             //Verificamos que el proceso de comparar y encriptar las contras haya salido bien(true)
             if(req.body.passConfirm){
                 
-                // Verificamos que haya una imagen de perfil y asignamos en una variable para su posrterior uso
+                // Verificamos que haya una imagen de perfil y asignamos en una variable para su posterior uso
                 let nameImg='default.jpg'
                 if(req.file){
                     nameImg=req.file.filename
@@ -64,6 +65,15 @@ const user={
             console.log(errorsList);
             res.render('userViews/registerUser',{errorsList})
         }
+    },
+    // proceso de login 
+    loginProcess: (req, res) => {
+        console.log(req)
+        let userToLogin = userModel.getUserByField('email', 'ernestino@correo.com');
+        
+        res.send(userToLogin)
+        
+        
     }
 }
 

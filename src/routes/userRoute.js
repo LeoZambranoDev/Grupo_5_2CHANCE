@@ -19,6 +19,7 @@ const validationUserRegister =require('../middleware/users/validationUserRegiste
 // Middleware para validar los campos provenientes del form
 //RUTAS
 router.get('/login',userController.login)
+router.post('/login', userController.loginProcess)
 router.get('/register',userController.registerView)
 router.post('/register',upload.single('img-perfil'),validationUserRegister,bcrypt.encPass,userController.register)
 

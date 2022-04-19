@@ -25,9 +25,10 @@ userModel={
 	getUserByField:function(field, text){
 		let users=this.getUsers()
 		let user=users.find(element=>{
-			return element.field==text
+			return element[field]==text
 		})
-		return user
+		return user;
+		
 	},
 	create: function(userData){
 		let users = this.getUsers();
@@ -49,4 +50,7 @@ delete: function(id) {
 	return true;
 }
 }
+userModel.getUserByField('email', 'ernestino@correo.com')
 module.exports = userModel;
+
+

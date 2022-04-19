@@ -21,9 +21,9 @@
             <div class="title-login">
                 INICIAR SESIÓN
             </div>
-            <form class="formLoginUser" action="">
-                <input type="text" placeholder="Ingresa tu usuario">
-                <input type="password" placeholder="Ingresa tu contraseña">
+            <form class="formLoginUser" action="/user/login" method="POST">
+                <input type="email" name="email2" placeholder="Ingresa tu email">
+                <input type="password" name="pass" placeholder="Ingresa tu contraseña">
                 <div class="check"><input type="checkbox" name="recuerdame" id="recuerdame"><label for="recuerdame">Mantener sesión </label> </div>
                 <button type="submit">INICIAR SESIÓN</button>
             </form>
