@@ -68,10 +68,10 @@ const user={
     },
     // proceso de login 
     loginProcess: (req, res) => {
-        console.log(req)
-        let userToLogin = userModel.getUserByField('email', 'ernestino@correo.com');
+        console.log(req.body)
+     let userToLogin = userModel.getUserByField('email', req.body.email);
         
-        res.send(userToLogin)
+      res.send(userToLogin)
         
         
     }
