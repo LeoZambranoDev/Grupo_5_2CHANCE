@@ -18,3 +18,10 @@ Sprint 4
 3. Continuar haciendo: continuar estructurando de manera organizada las tareas en Trello, ya que son claras y diferencian responsabilidades. Continuar la organización de los canales de slack establecidos para los diferentes objetivos (enlaces, general, etc). Reunirnos los días de las clases con Digital.
 4. Hacer menos: no aplica
 5. Dejar de hacer: no aplica 
+
+Sprint 5
+1. Comenzar a hacer: no aplica.
+2. Hacer más: resolver más ejercicios de manera grupal sincrónica por videollamada.
+3. Continuar haciendo: continuar estructurando de manera organizada las tareas en Trello, ya que son claras y diferencian responsabilidades. Reunirnos los días de las clases con Digital.
+4. Hacer menos: no aplica.
+5. Dejar de hacer: Continuar la organización de los canales de slack establecidos para los diferentes objetivos (enlaces, general, etc). 
