@@ -22,6 +22,7 @@ router.get('/login',userController.login)
 router.post('/login', userController.loginProcess)
 router.get('/register',userController.registerView)
 router.post('/register',upload.single('img-perfil'),validationUserRegister,bcrypt.encPass,userController.register)
-
+// Perfil de usuario
+router.get('/profile',userController.profile)
 //IMPORTANTE: exportar el módulo para poder ser usado en app.js
 module.exports=router

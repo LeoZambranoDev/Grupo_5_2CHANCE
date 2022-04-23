@@ -1,14 +1,21 @@
 
 //Requerimos express para ser usado como servidor
 const express=require('express')
+const session=require('express-session')
 //Inicializamos 
 const app= express()
 //Variable para acceder a las rutas
 const path=require('path');
 
+
 //Configuramos la carpeta public
 app.use(express.static(path.resolve('public')))
-
+//Para las sesiones
+app.use(session({
+    secret: "secreto",
+    resave: false,
+    saveUninitialized: false,
+}));
 //Para ocupar req.body
 const bodyParser = require('body-parser')
 // parse application/x-www-form-urlencoded
