@@ -76,30 +76,31 @@ const user = {
                 // para mantener la información en sesión
                 delete userToLogin.pass;
                 req.session.userLogged = userToLogin;
-                return res.redirect('./userViews/profile');
+                return res.redirect('/user/profile');
             }
+
             return res.render('./userViews/login', {
                 errors: {
-                    pass: {
-                        msg: 'La contraseña está incorrecta'
-                    }
+                    tipo: 'pass',
+                    msg: 'La contraseña está incorrecta'
                 }
+
             });
         }
-        
+
         return res.render('./userViews/login', {
             errors: {
-                email: {
-                    msg: 'Este correo no se encuentra registrado'
-                }
+                tipo: 'email',
+                msg: 'Este correo no se encuentra registrado'
+
             }
         });
-        
+
     },
     profile: (req, res) => {
-res.render ('./userViews/profile', {
-    user: req.session.userLogged
-});
+        res.render('userViews/profile', {
+            user: req.session.userLogged
+        });
     }
 }
 
