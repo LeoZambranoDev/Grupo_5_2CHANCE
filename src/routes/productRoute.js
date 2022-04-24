@@ -17,7 +17,7 @@ const ValidationRegister=require('../middleware/products/ValidationRegister')
 router.get('/register',productController.registerView)              //view register
 router.get('/update/:id',productController.updateView)              //view update
 router.get('/categories',productController.categoriesView)      //view Categories
-router.get('/detail',productController.detailView)              //view DetailProduct
+router.get('/detail/:id',productController.detailView)              //view DetailProduct
 router.get('/shopingCart', productController.shopingCartView)   //view ShoppingCart
 
 //Rutas por métodos != get
