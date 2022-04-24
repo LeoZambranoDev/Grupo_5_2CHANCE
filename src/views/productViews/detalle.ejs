@@ -20,16 +20,16 @@
       
       <div class="container-detail">
         <div class="div-marca">
-          <a class="marca" href="#">MarcaCelular</a> 
+          <a class="marca" href="#"><%= product.mark %> </a> 
         </div>
         <div class="nombre">
-          Nombre celular
+          <%= product.name %> 
         </div>
         <div class="img">
-          <img src="/img/products/GalaxyNote10Lite.jpg" alt="">
+          <img src="/img/products/<%= product.product_img %> " alt="">
         </div>
         <div class="precio">
-         $ 123.123
+         $ <%= product.price %> 
         </div>
         <a class="btn-comprar">COMPRAR</a>
         <a class="btn-agregar">AGREGAR AL CARRITO</a>
