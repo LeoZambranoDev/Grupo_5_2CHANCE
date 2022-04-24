@@ -98,9 +98,15 @@ const user = {
 
     },
     profile: (req, res) => {
-        res.render('userViews/profile', {
-            user: req.session.userLogged
-        });
+
+        if(req.session.userLogged){
+            res.render('userViews/profile', {
+                user: req.session.userLogged
+            });
+        }else{
+            res.redirect('user/login')
+        }
+
     }
 }
 
