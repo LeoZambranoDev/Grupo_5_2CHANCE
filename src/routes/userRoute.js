@@ -16,13 +16,17 @@ const bcrypt =require('../middleware/users/encPassUser')
 
 // Middleware para validar los campos provenientes del form
 const validationUserRegister =require('../middleware/users/validationUserRegister')
-// Middleware para validar los campos provenientes del form
+// Middlewares para validar si un usuario se encuentra en sesión 
+const guest =require('../middleware/users/guest')
+const authentication =require('../middleware/users/authentication')
 //RUTAS
-router.get('/login',userController.login)
+router.get('/login', guest, userController.login)
 router.post('/login', userController.loginProcess)
-router.get('/register',userController.registerView)
+router.get('/register', guest, userController.registerView)
 router.post('/register',upload.single('img-perfil'),validationUserRegister,bcrypt.encPass,userController.register)
 // Perfil de usuario
-router.get('/profile',userController.profile)
+router.get('/profile',authentication, userController.profile)
+// logout 
+router.get('/logout',userController.logout)
 //IMPORTANTE: exportar el módulo para poder ser usado en app.js
 module.exports=router

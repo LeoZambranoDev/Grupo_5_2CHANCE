@@ -1,7 +1,8 @@
 
 //Requerimos express para ser usado como servidor
-const express=require('express')
-const session=require('express-session')
+const express=require('express');
+const session=require('express-session');
+const cookies = require('cookie-parser') ;
 //Inicializamos 
 const app= express()
 //Variable para acceder a las rutas
@@ -22,6 +23,8 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
+// para las cookies
+app.use(cookies());
 
 
 

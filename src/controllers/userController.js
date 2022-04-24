@@ -76,6 +76,9 @@ const user = {
                 // para mantener la información en sesión
                 delete userToLogin.pass;
                 req.session.userLogged = userToLogin;
+                if(req.body.recuerdame) {
+					res.cookie('email', req.body.email, { maxAge: (1000 * 60) * 60 })
+				}
                 return res.redirect('/user/profile');
             }
 
@@ -106,8 +109,12 @@ const user = {
         }else{
             res.redirect('user/login')
         }
-
-    }
+    },
+logout: (req, res) => {
+res.clearCookie('email');
+req.session.destroy();
+return res.redirect('/');
+}
 }
 
 
