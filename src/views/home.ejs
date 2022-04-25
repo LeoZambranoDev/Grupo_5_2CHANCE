@@ -25,9 +25,10 @@
                 <div class="down">
                     <div class="nombre">
                         <label><%= productPro.name %></label>
+                        <label class="precio"><%= "- $" + productPro.price %></label>
                     </div>
                     <div>
-                        <label class="precio"><%= productPro.price %></label>
+                      
                     </div>
                 </div>
                 <div><a href="/product/detail/<%= productPro.id %>">Ver más</a></div>

@@ -125,6 +125,7 @@ padding: 15px 20px;
     flex-wrap: wrap;
     padding-left: 15px;
     padding-right: 15px;
+    padding-bottom: 15px;
     width: 100%;
     min-height: 90vh;
     background: linear-gradient(338.58deg, #28F8D3 6.21%, rgba(0, 70, 205, 0.78) 89.52%);
@@ -295,7 +296,7 @@ footer{
         width: 80%;
     }
     .down .precio, .down .nombre{
-        font-size: 60px;
+        font-size: 50px;
     }
     .down .precio{
         margin-top: 50px;
