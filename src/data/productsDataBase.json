@@ -4,9 +4,10 @@
   "name": "iPhone 8 Plus",
   "price": "1.400.000",
   "category": "destacado",
-  "color": "",
-  "mark": "",
-  "memory": "",
+  "color": "Negro",
+  "mark": "Apple",
+  "memory": "64 GB",
+  "ram": "3 GB",
   "product_img": "iPhone8Plus.jpg"
  },
  {
@@ -17,6 +18,7 @@
   "color": "",
   "mark": "",
   "memory": "",
+  "ram": "6 GB",
   "product_img": "HuaweiY7.jpg"
  },
  {
@@ -27,6 +29,7 @@
   "color": "",
   "mark": "",
   "memory": "",
+  "ram": "6 GB",
   "product_img": "OppoA54.jpg"
  },
  {
@@ -37,6 +40,7 @@
   "color": "",
   "mark": "",
   "memory": "",
+  "ram": "6 GB",
   "product_img": "RealmeGt5g.jpg"
  },
  {
@@ -44,9 +48,10 @@
   "name": "Sony Xperia F3113",
   "price": "510.000",
   "category": "destacado",
-  "color": "",
-  "mark": "",
-  "memory": "",
+  "color": "Negro",
+  "mark": "Sony",
+  "memory": "128 GB",
+  "ram": "6 GB",
   "product_img": "SonyXperia.jpg"
  },
  {
@@ -54,9 +59,10 @@
   "name": "LG K10 LTE",
   "price": "400.000",
   "category": "",
-  "color": "",
-  "mark": "",
-  "memory": "",
+  "color": "Negro",
+  "mark": "LG",
+  "memory": "32 GB",
+  "ram": "2 GB",
   "product_img": "LGK10Lte.jpg"
  },
  {
@@ -64,9 +70,10 @@
   "name": "Galaxy Note 10 Lite",
   "price": "700.000",
   "category": "destacado",
-  "color": "",
-  "mark": "",
-  "memory": "",
+  "color": "Blanco",
+  "mark": "Samsung",
+  "memory": "128 GB",
+  "ram": "4 GB",
   "product_img": "GalaxyNote10Lite.jpg"
  },
  {
@@ -74,9 +81,10 @@
   "name": "Nokia 1100",
   "price": "20.000.000",
   "category": "destacado",
-  "color": "white",
+  "color": "Blanco",
   "mark": "Nokia",
-  "memory": "8GB",
+  "memory": "50 Mb",
+  "ram": "512 kb",
   "product_img": "nokia.jpg"
  }
 ]
