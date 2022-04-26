@@ -34,5 +34,17 @@
   "type": "client",
   "image": "1650313517466.png",
   "status": "active"
+ },
+ {
+  "id": 4,
+  "firstName": "",
+  "lastName": "",
+  "nick": "daseva94",
+  "email": "daseva94@gmail.com",
+  "pass": "$2a$10$iov7o2YUkCR9GTIZ9eGYFeWbgoGsSr8vpK6YroJ.APuaFv1MZ8ZSS",
+  "address": "",
+  "type": "client",
+  "image": "default.jpg",
+  "status": "active"
  }
 ]

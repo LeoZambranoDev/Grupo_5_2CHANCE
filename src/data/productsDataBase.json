@@ -70,13 +70,13 @@
   "product_img": "GalaxyNote10Lite.jpg"
  },
  {
-  "id": "666",
-  "name": "Nombre de ejempo",
-  "price": "2.000.000",
+  "id": 10,
+  "name": "Nokia 1100",
+  "price": "20.000.000",
   "category": "destacado",
-  "color": "red",
-  "mark": "Iphone",
+  "color": "white",
+  "mark": "Nokia",
   "memory": "8GB",
-  "product_img": "1649996873408.png"
+  "product_img": "nokia.jpg"
  }
 ]
