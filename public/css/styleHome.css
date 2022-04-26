@@ -207,7 +207,8 @@ padding: 15px 20px;
 }
 .item-destacado img{
     border-radius: 20px 20px 0px 0px;
-    width: 100%;
+    
+    height: 200px;
 }
 
 
