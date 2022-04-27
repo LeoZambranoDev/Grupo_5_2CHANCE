@@ -26,6 +26,11 @@ app.use(bodyParser.json())
 // para las cookies
 app.use(cookies());
 
+//Middleware para control del logueo
+const userLogged=require('./src/middleware/users/userLogged')
+app.use(userLogged)
+
+
 
 
 //OVERRIDE
