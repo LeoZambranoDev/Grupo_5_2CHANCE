@@ -26,6 +26,7 @@ router.get('/register', guest, userController.registerView)
 router.post('/register',upload.single('img-perfil'),validationUserRegister,bcrypt.encPass,userController.register)
 // Perfil de usuario
 router.get('/profile',authentication, userController.profile)
+router.post('/profile',authentication, userController.update)
 // logout 
 router.get('/logout',userController.logout)
 //IMPORTANTE: exportar el módulo para poder ser usado en app.js
