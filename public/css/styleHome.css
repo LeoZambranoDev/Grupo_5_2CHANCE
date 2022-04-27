@@ -1,7 +1,6 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-*{
+* {
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
@@ -10,23 +9,23 @@
 
 /* header */
 
-header{
+header {
     background-color: gray;
 }
 
-.navBar{
+.navBar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 70px;
     top: -1px;
     background: #23233D;
-  
-    
+
+
 }
 
-.logo{
-   
+.logo {
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,11 +35,11 @@ header{
     top: 13px;
 }
 
-.logo img{
+.logo img {
     width: 100%;
 }
 
-.formBusqueda{
+.formBusqueda {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,6 +50,7 @@ header{
     background: #FFFFFF;
     border-radius: 30px;
 }
+
 .formBusqueda button {
     border-color: transparent;
     background: #FFFFFF;
@@ -58,7 +58,8 @@ header{
     margin-right: 5px;
     border-radius: 30px;
     color: #AFB0B3;
-} 
+}
+
 .formBusqueda .bar {
     border-color: transparent;
     background: #FFFFFF;
@@ -66,9 +67,9 @@ header{
     margin-left: 10px;
     border-radius: 30px;
     height: 38px;
-} 
+}
 
-.content-right{
+.content-right {
     display: none;
     color: white;
     font-size: 22px;
@@ -76,18 +77,18 @@ header{
 }
 
 
-.content-right li{
+.content-right li {
     position: relative;
-    display: inline-block;    
+    display: inline-block;
     list-style: none;
-      }
+}
 
-.content-right img{
-display: block;
-padding: 15px 20px;
-      }
+.content-right img {
+    display: block;
+    padding: 15px 20px;
+}
 
-.content-right img:hover{
+.content-right img:hover {
     filter: opacity(0.4) drop-shadow(0 0 0 #0DA2E0);
     transition: all .3s;
 }
@@ -98,27 +99,51 @@ padding: 15px 20px;
     visibility: hidden;
     opacity: 0;
     transition: opacity 1.5s;
+    background-color: rgba(226, 218, 218, 0.822);
+    width: 170px;
+    border: 1px black solid;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    
+    color:#000
 }
-.login-register li a{
+
+.login-register li{
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.login-register li a {
+
     display: block;
     padding: 5px;
-    color: #F6F6F6;
+    color: black;
     text-decoration: none;
 }
-.content-right .user:hover .login-register{
-   visibility: visible;
-   opacity: 1;
+.div-line{
+    border-top: solid 0.5px black;
+    width: 100%;
 }
-.login-register li a:hover{
+
+.content-right .user:hover .login-register {
+    visibility: visible;
+    opacity: 1;
+}
+
+.login-register li a:hover {
     color: #23233D;
     transition: all .3s;
 }
+
 /* header */
 
 
 /* MAIN */
 
-.slider{
+.slider {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -131,29 +156,34 @@ padding: 15px 20px;
     background: linear-gradient(338.58deg, #28F8D3 6.21%, rgba(0, 70, 205, 0.78) 89.52%);
 }
 
-.fi{
+.fi {
     display: none;
 }
-.up{
+
+.up {
     display: flex;
     justify-content: center;
     width: 100%;
 }
-.up img{
+
+.up img {
     width: 250px;
 }
-.down{
+
+.down {
     width: 100%;
     flex-direction: column;
     text-align: center;
 }
-.down .nombre, .down .precio{
+
+.down .nombre,
+.down .precio {
     font-weight: 600;
     font-size: 24px;
     line-height: 20px;
 }
 
-.slider div a{
+.slider div a {
     padding-left: 80px;
     padding-right: 80px;
     padding-top: 10px;
@@ -166,18 +196,19 @@ padding: 15px 20px;
     font-weight: 600;
 }
 
-.checks{
+.checks {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
 }
-.checks input{
+
+.checks input {
     margin-left: 5px;
     margin-right: 5px;
 }
 
-.title-destacados{
+.title-destacados {
     text-align: center;
     line-height: 28px;
     font-weight: 600;
@@ -187,14 +218,15 @@ padding: 15px 20px;
 }
 
 
-.destacados{
+.destacados {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
-.item-destacado{
+.item-destacado {
     display: flex;
     width: 70%;
     justify-content: center;
@@ -205,24 +237,27 @@ padding: 15px 20px;
     margin-left: 10px;
     margin-right: 10px;
 }
-.item-destacado img{
+
+.item-destacado img {
     border-radius: 20px 20px 0px 0px;
-    
+
     height: 200px;
 }
 
 
-.item-destacado .precio{
+.item-destacado .precio {
     color: #FF9900;
     margin-top: 5px;
 }
-.nombre a{
+
+.nombre a {
     text-decoration: none;
     color: #000;
     text-decoration-line: none;
     margin-top: 5px;
 }
-.nombre{
+
+.nombre {
     text-align: center;
 }
 
@@ -245,89 +280,118 @@ padding: 15px 20px;
 
 
 /* footer */
-footer{
+footer {
     background-color: #F6F6F6;
     color: #27293B;
-   height: 15rem;
-   
+    height: 15rem;
+
 }
-.content-footer{
+
+.content-footer {
     background-color: #F6F6F6;
     display: flex;
     justify-content: space-around;
     width: 90%;
     align-items: center;
     height: 15rem;
-   
+
 }
 
-.logoFooter{
+.logoFooter {
     display: none;
 }
-.logoFooter img{
-    width: 300%;
+
+.logoFooter img {
+    width: 100%;
 }
 
 /* footer */
 
 
 @media (min-width: 768px) {
-    .content-right{
+    .content-right {
         display: flex;
     }
-    .logoFooter{
+
+    .logoFooter {
         width: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .title-destacados{
+    .title-destacados {
         font-size: 40px;
+        width: 100%;
     }
-    .destacados{
+
+    .destacados {
         font-size: 40px;
+        flex-direction: row;
+        width: 90%;
+        margin: auto;
+
     }
-    .up div{
+
+    .up div {
         display: flex;
         justify-content: center;
     }
 
-    .up img{
+    .up img {
         width: 80%;
     }
-    .down .precio, .down .nombre{
+
+    .down .precio,
+    .down .nombre {
         font-size: 50px;
     }
-    .down .precio{
+
+    .down .precio {
         margin-top: 50px;
     }
-    .down .nombre{
+
+    .down .nombre {
         margin-bottom: 50px;
     }
-    
+
+    .item-destacado {
+        width: 50%;
+        margin: 0px;
+    }
+
+
+    .item-destacado {
+        margin-bottom: 20px;
+    }
+
+
 }
 
 
 
 @media (min-width: 1200px) {
 
-    .destacados{
+    .destacados {
         flex-direction: row;
         flex-wrap: wrap;
     }
-    .title-destacados{
+
+    .title-destacados {
         width: 100%;
         margin-bottom: 40px;
     }
-    .item-destacado{
+
+    .item-destacado {
         width: 25%;
         margin: auto;
     }
+
     .up {
         width: 70%;
     }
-    .up img{
+
+    .up img {
         width: 60%;
     }
 
