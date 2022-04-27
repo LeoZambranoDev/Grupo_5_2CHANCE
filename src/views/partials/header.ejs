@@ -7,20 +7,32 @@
         </div>
 
         <ul class="content-right">
-            <li><form class="formBusqueda" action="">
-                <input type="text" class="bar" placeholder="Buscar">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-        </li>
-           <li class="question"><img src="/img/icons/icon-question.png"></li>
-           <li class="user"><img src="/img/icons/icon-user.png">
-                
-        <ul class="login-register">
-           <li> <a href="/user/login">Mi cuenta</a> </li>
-            <li><a href="/user/register">Registrarme</a> </li>
-        </li>
-        </ul>
+            <li>
+                <form class="formBusqueda" action="">
+                    <input type="text" class="bar" placeholder="Buscar">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </li>
+            <li class="user">
+                <img src="/img/icons/icon-user.png">
+                <ul class="login-register">
+                <% if ( locals.isLogged ) { %>
+                <li>Hola, <%= userLogged.nick %> </li>
+                <snap class="div-line"></snap>
+                <li> <a href="/user/login">Mi cuenta</a> </li>
+                <snap class="div-line"></snap>
+                <li> <a href="/user/logout">Logout</a> </li>
+                <% } else { %>
+                <li> <a href="/user/login">Iniciar Sesión</a> </li>
+                <snap class="div-line"></snap>
+                <li><a href="/user/register">Registrarme</a> </li>
+                <% } %>
+                </ul>
+            </li>
+            <li class="question"><img src="/img/icons/icon-question.png"></li>
             <li class="carShop"><a href="/shopingCart"><img src="/img/icons/icon-shoppingCart.png"></a></li>
-        
+            
+        </ul>
+
     </div>
 </header>
