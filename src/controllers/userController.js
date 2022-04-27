@@ -76,9 +76,10 @@ const user = {
                 // para mantener la información en sesión
                 delete userToLogin.pass;
                 req.session.userLogged = userToLogin;
-                if(req.body.recuerdame) {
-					res.cookie('email', req.body.email, { maxAge: (1000 * 60) * 60 })
-				}
+                // res.locals.user = req.session.userLogged;
+                if (req.body.recuerdame) {
+                    res.cookie('email', req.body.email, { maxAge: (1000 * 60) * 60 })
+                }
                 return res.redirect('/user/profile');
             }
 
@@ -102,19 +103,19 @@ const user = {
     },
     profile: (req, res) => {
 
-        if(req.session.userLogged){
+        if (req.session.userLogged) {
             res.render('userViews/profile', {
                 user: req.session.userLogged
             });
-        }else{
+        } else {
             res.redirect('user/login')
         }
     },
-logout: (req, res) => {
-res.clearCookie('email');
-req.session.destroy();
-return res.redirect('/');
-}
+    logout: (req, res) => {
+        res.clearCookie('email');
+        req.session.destroy();
+        return res.redirect('/');
+    }
 }
 
 
