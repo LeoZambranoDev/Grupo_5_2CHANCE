@@ -5,7 +5,7 @@
     
     <!-- metas and lynks -->
     <%- include('../partials/metasBasics') %>
-    <link rel="stylesheet" href="/css/user/styleRegister.css">
+    <link rel="stylesheet" href="/css/user/styleProfile.css">
     <title>Mi perfil</title>
 </head>
 
@@ -18,9 +18,12 @@
 	<!-- Container -->
 	<main>
 
-		<div class="contentUser">
-            <form class="formUpdate" action="/user/register" method="POST" enctype="multipart/form-data">
-                <div class="title">INFORMACIÓN PERSONAL</div>
+		<div class="contentProfile">
+            <form class="formUpdate" action="/user/profile" method="POST" enctype="multipart/form-data">
+                <div class="titleProfile">INFORMACIÓN PERSONAL</div>
+                <img class="imgProfile" src="/img/users/<%= user.image %> ">
+				<br>
+				<br>
 
                 <div class="errorsList">
 					<% if (typeof errorsList !='undefined') { %>
@@ -33,8 +36,6 @@
                 <input type="text" name="nick" id="nick" placeholder="Ingresa tu usuario" disabled value="<%= locals.userLogged.nick %>"> 
                 <label for="email">Email</label>
 				<input type="email" name="email" id="email" placeholder="Ingresa tu correo" disabled value="<%= locals.userLogged.email %>" >
-                <!-- <input type="password" name="pass" placeholder="Ingresa tu contraseña">
-                <input type="password" name="passConfirm" placeholder="Confirma tu contraseña"> -->
                 <label for="firstName">Nombres</label>
 				<input type="text" name="firstName" id="firstName" placeholder=""    value="<%= (locals.userLogged.firstName)?locals.userLogged.firstName:'' %>" > 
 
