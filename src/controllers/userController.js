@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs/dist/bcrypt')
+const { redirect } = require('express/lib/response')
 const path = require('path')
 
 const userModel = require('../models/userModel')
@@ -110,6 +111,10 @@ const user = {
         } else {
             res.redirect('user/login')
         }
+    },
+    updateProfile:(req,res)=>{
+        //actualizar para con la DB
+        redirect('/')
     },
     logout: (req, res) => {
         res.clearCookie('email');
