@@ -20,13 +20,13 @@
       
       <div class="container-detail">
         <div class="div-marca">
-          <a class="marca" href="#"><%= product.mark %> </a> 
+          <a class="marca" href="/product/detail/<%= product.id %>"> </a> 
         </div>
         <div class="nombre">
           <%= product.name %> 
         </div>
         <div class="img">
-          <img src="/img/products/<%= product.product_img %> " alt="">
+          <img src="/img/products/<%= product.image %> " alt="">
         </div>
         <div class="precio">
          $ <%= product.price %> 
@@ -37,7 +37,7 @@
       <div class="caracts">
         <div class="title-caract">Características del producto</div>
         <div class="caracteristicas"><span class="dot"></span> Color:    <div class="valor"><%= product.color %></div></div>
-        <div class="caracteristicas"><span class="dot"></span> Marca:    <div class="valor"><%= product.mark %></div></div>
+        <div class="caracteristicas"><span class="dot"></span> Marca:    <div class="valor"><%= product.brand %></div></div>
         <div class="caracteristicas"><span class="dot"></span> Almacenamiento:     <div class="valor"><%= product.memory %></div></div>
         <div class="caracteristicas"><span class="dot"></span> Memoria Ram:    <div class="valor"><%= product.ram %></div></div>
       </div>
