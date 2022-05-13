@@ -31,7 +31,7 @@
   "email": "ernestino@correo.com",
   "pass": "$2a$10$oaA8V4L9LhBfr1Gp8SmIKOTlbfqEqA7aDhA3CBfiHMQGEbe24m.tC",
   "address": "",
-  "type": "client",
+  "type": "vendedor",
   "image": "1650313517466.png",
   "status": "active"
  },
