@@ -26,8 +26,13 @@ DROP TABLE IF EXISTS `bills`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bills` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `createdAt` date DEFAULT NULL,
+  `updateAt` date DEFAULT NULL,
+  `user_id` int NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `fk_bills_users1_idx` (`user_id`),
+  CONSTRAINT `fk_bills_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -55,7 +60,7 @@ DROP TABLE IF EXISTS `categories`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categories` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
+  `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -70,7 +75,7 @@ DROP TABLE IF EXISTS `colors`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `colors` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
+  `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -85,7 +90,7 @@ DROP TABLE IF EXISTS `memory`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `memory` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
+  `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -130,6 +135,24 @@ CREATE TABLE `products` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `products_has_users`
+--
+
+DROP TABLE IF EXISTS `products_has_users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `products_has_users` (
+  `product_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`product_id`,`user_id`),
+  KEY `fk_products_has_users_users1_idx` (`user_id`),
+  KEY `fk_products_has_users_products1_idx` (`product_id`),
+  CONSTRAINT `fk_products_has_users_products1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_products_has_users_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `ram`
 --
 
@@ -138,43 +161,9 @@ DROP TABLE IF EXISTS `ram`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ram` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
+  `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `shoppingcart_has_products`
---
-
-DROP TABLE IF EXISTS `shoppingcart_has_products`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `shoppingcart_has_products` (
-  `ShoppingCart_id` int NOT NULL,
-  `Products_id` int NOT NULL,
-  PRIMARY KEY (`ShoppingCart_id`,`Products_id`),
-  KEY `fk_ShoppingCart_has_Products_Products1_idx` (`Products_id`),
-  KEY `fk_ShoppingCart_has_Products_ShoppingCart1_idx` (`ShoppingCart_id`),
-  CONSTRAINT `fk_ShoppingCart_has_Products_Products1` FOREIGN KEY (`Products_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_ShoppingCart_has_Products_ShoppingCart1` FOREIGN KEY (`ShoppingCart_id`) REFERENCES `shoppingcarts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `shoppingcarts`
---
-
-DROP TABLE IF EXISTS `shoppingcarts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `shoppingcarts` (
-  `id` int NOT NULL,
-  `users_id` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_ShoppingCarts_Users1_idx` (`users_id`),
-  CONSTRAINT `fk_ShoppingCarts_Users1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -187,7 +176,7 @@ DROP TABLE IF EXISTS `types`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `types` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
+  `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -205,11 +194,11 @@ CREATE TABLE `users` (
   `fristName` varchar(45) DEFAULT NULL,
   `lastName` varchar(45) DEFAULT NULL,
   `nick` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `password` text,
+  `email` varchar(60) NOT NULL,
+  `password` text NOT NULL,
   `address` varchar(60) DEFAULT NULL,
   `image` varchar(60) DEFAULT NULL,
-  `types_id` int DEFAULT NULL,
+  `type_id` int DEFAULT NULL,
   `createdAt` date DEFAULT NULL,
   `updateAt` date DEFAULT NULL,
   `deletedAt` date DEFAULT NULL,
@@ -217,27 +206,9 @@ CREATE TABLE `users` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   UNIQUE KEY `nick_UNIQUE` (`nick`),
-  KEY `fk_Users_types_idx` (`types_id`),
-  CONSTRAINT `fk_Users_types` FOREIGN KEY (`types_id`) REFERENCES `types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `fk_Users_types_idx` (`type_id`),
+  CONSTRAINT `fk_Users_types` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `users_has_bills`
---
-
-DROP TABLE IF EXISTS `users_has_bills`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users_has_bills` (
-  `Users_id` int NOT NULL,
-  `Bills_id` int NOT NULL,
-  PRIMARY KEY (`Users_id`,`Bills_id`),
-  KEY `fk_Users_has_Bills_Bills1_idx` (`Bills_id`),
-  KEY `fk_Users_has_Bills_Users1_idx` (`Users_id`),
-  CONSTRAINT `fk_Users_has_Bills_Bills1` FOREIGN KEY (`Bills_id`) REFERENCES `bills` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_Users_has_Bills_Users1` FOREIGN KEY (`Users_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -249,4 +220,4 @@ CREATE TABLE `users_has_bills` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-05 22:15:04
+-- Dump completed on 2022-05-09 19:17:47
