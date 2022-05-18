@@ -28,8 +28,8 @@
           <!-- <input type="text" placeholder="Categoría"> -->
           <select class="select" name="category" id="">
             <option value="ninguno">Categoría:</option>
-            <option <% if (product.category=='ninguno') { %>selected<% } %> value="ninguno">Ninguno</option>
-            <option <% if (product.category=='destacado') { %>selected<% } %> value="destacado">Destacado</option>
+            <option <% if (product.category=='ninguno') { %>selected<% } %> value="">Ninguno</option>
+            <option <% if (product.category=='destacado') { %>selected<% } %> value="MostViewed">Destacado</option>
           </select>
           <!-- <input type="text" placeholder="Color"> -->
           <select class="select" name="color" id="">
@@ -50,13 +50,24 @@
           <!-- <input type="text" placeholder="Memoria"> -->
           <select class="select" name="memory" id="" >
             <option value="ninguno">Memoria:</option>
-            <option <% if (product.memory=='4GB') { %>selected<% } %> value="4GB">4GB</option>
-            <option <% if (product.memory=='8GB') { %>selected<% } %> value="8GB">8GB</option>
-            <option <% if (product.memory=='16GB') { %>selected<% } %> value="16GB">16GB</option>
-            <option <% if (product.memory=='32GB') { %>selected<% } %> value="32GB">32GB</option>
-            <option <% if (product.memory=='64GB') { %>selected<% } %> value="64GB">64GB</option>
-            <option <% if (product.memory=='128GB') { %>selected<% } %> value="128GB">128GB</option>
-            <option <% if (product.memory=='256GB') { %>selected<% } %> value="256GB">256GB</option>
+            <option <% if (product.memory=='4GB') { %>selected<% } %> value="1">4GB</option>
+            <option <% if (product.memory=='8GB') { %>selected<% } %> value="2">8GB</option>
+            <option <% if (product.memory=='16GB') { %>selected<% } %> value="3">16GB</option>
+            <option <% if (product.memory=='32GB') { %>selected<% } %> value="4">32GB</option>
+            <option <% if (product.memory=='64GB') { %>selected<% } %> value="5">64GB</option>
+            <option <% if (product.memory=='128GB') { %>selected<% } %> value="6">128GB</option>
+            <option <% if (product.memory=='256GB') { %>selected<% } %> value="7">256GB</option>
+          </select>
+
+          <select class="select" name="ram" id="" >
+            <option value="ninguno">Ram:</option>
+            <option <% if (product.ram=='4GB') { %>selected<% } %> value="1">1GB</option>
+            <option <% if (product.ram=='8GB') { %>selected<% } %> value="2">2GB</option>
+            <option <% if (product.ram=='16GB') { %>selected<% } %> value="3">4GB</option>
+            <option <% if (product.ram=='32GB') { %>selected<% } %> value="4">8GB</option>
+            <option <% if (product.ram=='64GB') { %>selected<% } %> value="5">16GB</option>
+            <option <% if (product.ram=='128GB') { %>selected<% } %> value="6">32GB</option>
+            <option <% if (product.ram=='256GB') { %>selected<% } %> value="7">64GB</option>
           </select>
           <input type="text" name="price" placeholder="Precio" value="<%= product.price %>">
           <snap class="file">Imagen del dispositivo:<input type="file" class="input-file" name="imgCel" id="imgsCel" accept="image/jpg, image/jpeg, image/png" ></snap>
