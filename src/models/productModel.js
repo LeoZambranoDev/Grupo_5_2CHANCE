@@ -1,31 +1,51 @@
 const path =require('path')
 const fs= require('fs')
 
+const db= require('../data/models')
+
 module.exports={
     //Función encargada de obtener la lista de los productos
-	getProducts:()=>{
-		let productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-		return JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+	getProducts: async()=>{
+		let aux= await db.Product.findAll()
+		return aux
 	},
 	//Obtener producto por Id
-	getProductById:function(id){
-		let products=this.getProducts()
-		let product=products.find(element=>{
-			return element.id==id
-		})
+	getProductById:async function(id){
+		let product= await db.Product.findByPk(id)
 		return product
 	},
 	//Obtener productos por categoría
-	getProductByCategory:function(cat){
-		let products=this.getProducts()
-		let product=products.filter(element=>{
-			return element.category==cat
+	getProductByCategory:async function(cat){
+		let category=await db.Category.findOne({
+			where:{
+				name:cat
+			}
 		})
-		return product
+		let products=await db.Product.findAll({
+			where:{
+				category_id:category.id
+			}
+		})
+		return products
 	},
-	//Guardar listado de productos
-	saveProducts:(products)=>{
-		let productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
+	//Guardar un producto
+	saveProduct:(product)=>{
+		db.Product.create(product)
+	},
+	//Actualizar prducto
+	updateProduct:(product)=>{
+		db.Product.update(product,{
+			where:{
+				id:product.id
+			}
+		})
+	},
+	//Eliminar producto
+	deleteProduct:async (idProduct)=>{
+		await db.Product.destroy({
+			where:{
+				id:idProduct
+			}
+		})
 	}
 }
