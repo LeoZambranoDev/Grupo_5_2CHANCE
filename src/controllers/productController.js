@@ -1,26 +1,28 @@
-const path = require('path')
-const fs = require('fs')
 const productModel = require('../models/productModel')
 
-
 const product = {
-	
-	registerView: (req, res) => {
-		if (req.session.userLogged.type == 'vendedor') {
-			res.render('./productViews/register')
-		} else {
-			res.redirect('user/login')
-		}
 
+	registerView: (req, res) => {
+		//verificamos si el usuario está almacenado en session
+		if (req.session.userLogged) {
+			//verificamos que sea empleado o administrador
+			if (req.session.userLogged.type.name == 'Employee' || req.session.userLogged.type.name == 'Admin') {
+				res.render('./productViews/register')
+			} else {
+				res.redirect('/user/login')
+			}
+		} else {
+			res.redirect('/user/login')
+		}
 	},
-	registerProduct: (req, res) => { 
+	registerProduct: async (req, res) => {
 
 		//Requerimos la función para capturar los errores almacenados en req
 		const { validationResult } = require('express-validator')
 		let errors = validationResult(req)
 		let errorsList = errors.errors
 		//Listado de productos actuales
-		let products = productModel.getProducts()
+		let products = await productModel.getProducts()
 
 		//asignación de imagen por defecto si no envían una
 		let nameImg = 'default.jpg'
@@ -40,12 +42,12 @@ const product = {
 				"color": req.body.color,
 				"mark": req.body.mark,
 				"memory": req.body.memory,
-				"product_img": nameImg
+				"image": nameImg
 			}
 
-			//Agregamos el nuevo producto y guardamos
-			products.push(newProduct)
-			productModel.saveProducts(products)
+			//guardamos el nuevo producto 
+			productModel.saveProduct(newProduct)
+
 			//redirigimos a home si todo sale ok
 			res.redirect('/')
 		}
@@ -55,86 +57,80 @@ const product = {
 		}
 
 	},
-	updateView: (req, res) => {
-
-		if (req.session.userLogged.type == 'vendedor') {
-
-			let product = productModel.getProductById(req.params.id)
-			if (product) {
-				res.render('./productViews/update', { product })
+	updateView: async (req, res) => {
+		//verificamos si el usuario está almacenado en session
+		if (req.session.userLogged) {
+			//verificamos que sea empleado o administrador
+			if (req.session.userLogged.type.name == 'Employee' || req.session.userLogged.type.name == 'Admin') {
+				//Obtenemos el producto por id
+				let product = await productModel.getProductById(req.params.id)
+				//verificamos que haya un resultado
+				if (product) {
+					res.render('./productViews/update', { product })
+				}
+				else {
+					res.send('Error, no se ha encontrado el teléfono correspondiente al id' + req.params.id)
+				}
+	
+			} else {
+				res.redirect('user/login')
 			}
-			else {
-				res.send('Error, no se ha encontrado el teléfono correspondiente al id' + req.params.id)
-			}
-
-		} else {
-			res.redirect('user/login')
+			
+		}else{
+			res.send('error en 79-productController')
 		}
 
 
 	},
 	updateProduct: (req, res) => {
-
-		//Obtenemos el nombre de la imagen "antigua" o si subió una "nueva"
-		let nameImg = req.body.imgCel_old
-		if (req.file) {
-			nameImg = req.file.filename
+		//Declaramos el producto que se actualizará
+		let product = {
+			"id":req.params.id,
+			"name": req.body.name,
+			"price": req.body.price,
+			"category_id": req.body.category,
+			"color_id": req.body.color,
+			"brand_id": req.body.mark,
+			"memory_id": req.body.memory,
+			"ram_id": req.body.ram,
 		}
 
-		//Creamos la variable contenedora de la nueva lista con el producto actualizado
-		let auxProducts = []
-		//recorremos y agregamos los productos junto con el editado
-		productModel.getProducts().forEach(element => {
-			if (element.id == req.params.id) {
-				auxProducts.push(
-					{
-						"id": req.params.id,
-						"name": req.body.name,
-						"price": req.body.price,
-						"category": req.body.category,
-						"color": req.body.color,
-						"mark": req.body.mark,
-						"memory": req.body.memory,
-						"product_img": nameImg
-					}
-				)
-			}
-			else {
-				auxProducts.push(element)
-			}
-		})
+		//Obtenemos el nombre de la imagen "nueva" si se actualizó
+		if (req.file) {
+			product.image = req.file.filename
+		}
 
-		//Guardamos el listado de productos en el Json
-		productModel.saveProducts(auxProducts)
-		
-		res.redirect('/')
-	},
-	detailView: (req, res) => {
-		let product = productModel.getProductById(req.params.id)
-		let products= productModel.getProductByCategory('destacado')
-		res.render('./productViews/detalle', { product,products })
-	},
-	deleteProduct: (req, res) => {
-		//obtenemos la lista y eliminamos el que corresponda con el id
-		let auxProducts = productModel.getProducts().filter(element => (element.id != req.params.id))
-		//Guardamos el resto de elementos
-		productModel.saveProducts(auxProducts)
+		//Guardamos el producto en DB
+		productModel.updateProduct(product)
 
 		res.redirect('/')
 	},
-	categoriesView: (req, res) => {
-		let products = productModel.getProducts()
+	detailView:async (req, res) => {
+		//Obtenemos el producto por id
+		let product =await productModel.getProductById(req.params.id)
+		//Obtenemos los productos correspondientes a la categoria
+		let products =await productModel.getProductByCategory('MostViewed')
+		res.render('./productViews/detalle', { product, products })
+	},
+	deleteProduct: async (req, res) => {
+		//Eliminamos el producto
+		await productModel.deleteProduct(req.params.id)
+
+		res.redirect('/')
+	},
+	categoriesView:async (req, res) => {
+		//Obtenemos los productos
+		let products =await productModel.getProducts()
 		res.render('./productViews/categories', { products })
 	},
 	shopingCartView: (req, res) => {
+		//verificamos que el usuario haya iniciado sesion
 		if (req.session.userLogged) {
 			res.render('./productViews/shopCart')
-		}else{
+		} else {
 			res.redirect('/user/login')
 		}
 	}
-
 }
-
 
 module.exports = product;
