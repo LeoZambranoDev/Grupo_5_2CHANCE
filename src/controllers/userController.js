@@ -1,10 +1,8 @@
 const bcrypt = require('bcryptjs/dist/bcrypt')
-const { redirect } = require('express/lib/response')
 const path = require('path')
 
 const userModel = require('../models/userModel')
 const user = {
-    //se ocupa el método render para trabajar con view engine EJS
     login: (req, res) => {
         res.render('./userViews/login')
     },
@@ -16,9 +14,6 @@ const user = {
         const { validationResult } = require('express-validator')
         let errors = validationResult(req)
         let errorsList = errors.errors
-        //Requerimos todos los usuarios almacenados para agregar el nuevo y escribirlos en en json
-
-        let usersList = userModel.getUsers()
 
         //Verificamos incialmente la validación de los inputs del form
         if (errors.isEmpty()) {
@@ -27,28 +22,23 @@ const user = {
             if (req.body.passConfirm) {
 
                 // Verificamos que haya una imagen de perfil y asignamos en una variable para su posterior uso
-                let nameImg = 'default.jpg'
+                let nameImg = 'default.png'
                 if (req.file) {
                     nameImg = req.file.filename
                 }
+
                 //creamos el usuario para ser guardado
                 let user = {
-                    "id": usersList.length + 1,
-                    "firstName": "",
-                    "lastName": "",
                     "nick": req.body.nick,
                     "email": req.body.email,
-                    "pass": req.body.pass,
-                    "address": "",
-                    "type": "client",
+                    "password": req.body.pass,
+                    "type_id": 2,
                     "image": nameImg,
-                    "status": "active"
                 }
-                //agregamos el usuario a la lista
-                usersList.push(user)
 
-                //Guardamos en el json
-                userModel.saveUserList(usersList)
+                //Guardamos el usuario
+                userModel.create(user)
+
                 res.redirect("/")
             } else {
                 //agregamos un error para cuando las contraseñas no coinciden
@@ -68,53 +58,75 @@ const user = {
             res.render('userViews/registerUser', { errorsList })
         }
     },
-    // proceso de login 
-    loginProcess: (req, res) => {
-        let userToLogin = userModel.getUserByField('email', req.body.email);
+    loginProcess: async (req, res) => {
+        //Obtenemos el usuario correspondiente al email
+        let userToLogin = await userModel.getUserByEmail(req.body.email);
+        //Verificamos que haya encontrado un usuario
         if (userToLogin) {
-            let checkThePassword = bcrypt.compareSync(req.body.pass, userToLogin.pass)
+            //comparamos las contrasenas
+            let checkThePassword = bcrypt.compareSync(req.body.pass, userToLogin.password)
+            //Verificamos si todo ok
             if (checkThePassword) {
                 // para mantener la información en sesión
-                delete userToLogin.pass;
+                delete userToLogin.password;
                 req.session.userLogged = userToLogin;
-                // res.locals.user = req.session.userLogged;
+
+                //Verificamos si seleccionó la opción recuerdame
                 if (req.body.recuerdame) {
                     res.cookie('email', req.body.email, { maxAge: (1000 * 60) * 60 })
+                    res.redirect('/user/profile');
+                } else {
+                    res.redirect('/user/profile');
                 }
-                return res.redirect('/user/profile');
-            }
+            } else {
+                return res.render('./userViews/login', {
+                    errors: {
+                        tipo: 'pass',
+                        msg: 'La contraseña está incorrecta'
+                    }
 
+                });
+            }
+        } else {
             return res.render('./userViews/login', {
                 errors: {
-                    tipo: 'pass',
-                    msg: 'La contraseña está incorrecta'
-                }
+                    tipo: 'email',
+                    msg: 'Este correo no se encuentra registrado'
 
+                }
             });
         }
 
-        return res.render('./userViews/login', {
-            errors: {
-                tipo: 'email',
-                msg: 'Este correo no se encuentra registrado'
-
-            }
-        });
 
     },
-    profile: (req, res) => {
-
+    profile:async (req, res) => {
+        //Obtenemos el usuario por id
+        let userNow=await userModel.getUserById(req.session.userLogged.id)
+        //verificamos que esté logueado
         if (req.session.userLogged) {
             res.render('userViews/profile', {
-                user: req.session.userLogged
+                user: userNow
             });
         } else {
-            res.redirect('user/login')
+            res.redirect('/user/login')
         }
     },
-    updateProfile:(req,res)=>{
-        //actualizar para con la DB
-        redirect('/')
+    updateProfile:async (req, res) => {
+        //Usuario a actualizar
+        let user={
+            firstName:req.body.firstName,
+            lastName:req.body.lastName,
+            address:req.body.address,
+        }
+        //verificamos si se ha subido imagen para actualizarla
+        if (req.file) {
+            user.image = req.file.filename
+        }
+        //actulizamos el usuario
+        let userUpdated = await userModel.updateUser(req.session.userLogged.id,user)
+        //almacenamos en userlogged el usuario actualizado
+        res.locals.userLogged = await userModel.getUserById(req.session.userLogged.id)
+        res.redirect('/user/profile')
     },
     logout: (req, res) => {
         res.clearCookie('email');
