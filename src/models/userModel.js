@@ -1,56 +1,39 @@
-const path =require('path')
-const fs= require('fs')
-//Lugar de almacenamiento de json 
-const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
-userModel={
-    //Función encargada de obtener la lista de los usuarios
-	getUsers:()=>{
-		return JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-	},
-	generateId: function() {
-		let users = this.getUsers();
-		let lastUser = users.pop();
-		if (lastUser) {
-		return lastUser.id + 1;
-	}
-	return 1;
-	},
-	getUserById:function(id){
-		let users=this.getUsers()
-		let user=users.find(element=>{
-			return element.id==id
+const db = require('../data/models');
+
+userModel = {
+	//obtener usuario por id
+	getUserById:async function (id) {
+		let user=await db.User.findByPk(id,{
+			include:['type']
 		})
 		return user
 	},
-	getUserByField:function(field, text){
-		let users=this.getUsers()
-		let user=users.find(element=>{
-			return element[field]==text
+	//Obtener usuario por email
+	getUserByEmail: async function (text) {
+		let user = await db.User.findOne({
+			// attributes: ['email'],
+			include: ['type'],
+			where: {
+				email: text
+			}
 		})
-		return user;
-		
+		return user
 	},
-	create: function(userData){
-		let users = this.getUsers();
-		let newUser = {
-			id: this.generateId(),
-			...userData
-		};
-		users.push(newUser);
-		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
-		return newUser;
+	//crear usuario
+	create: function (userData) {
+		db.User.create(userData)
 	},
-    saveUserList:(usersList)=>{
-        fs.writeFileSync(usersFilePath, JSON.stringify(usersList, null, ' '))
-    },
-delete: function(id) {
-	let users = this.getUsers();
-	let finalUsers = users.filter(oneUser => oneUser.id !== id);
-	fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, ' '));
-	return true;
+	//actualizar usuario
+	updateUser:async function (idUser,datos) {
+		let user= await db.User.update(datos,{
+			where:{
+				id:idUser
+			}
+		})
+		return user
+	}
 }
-}
-userModel.getUserByField('email', 'ernestino@correo.com')
+// userModel.getUserByField('email', 'ernestino@correo.com')
 module.exports = userModel;
 
 
