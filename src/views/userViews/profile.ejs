@@ -21,7 +21,7 @@
 		<div class="contentProfile">
             <form class="formUpdate" action="/user/profile" method="POST" enctype="multipart/form-data">
                 <div class="titleProfile">INFORMACIÓN PERSONAL</div>
-                <img class="imgProfile" src="/img/users/<%= user.image %> ">
+                <img class="imgProfile" src="/img/users/<%= locals.user.image %> ">
 				<br>
 				<br>
 
@@ -33,19 +33,19 @@
                     <% } %> 
                 </div>
 				<label for="nick">Nick</label>
-                <input type="text" name="nick" id="nick" placeholder="Ingresa tu usuario" disabled value="<%= locals.userLogged.nick %>"> 
+                <input type="text" name="nick" id="nick" placeholder="Ingresa tu usuario" disabled value="<%= locals.user.nick %>"> 
                 <label for="email">Email</label>
-				<input type="email" name="email" id="email" placeholder="Ingresa tu correo" disabled value="<%= locals.userLogged.email %>" >
+				<input type="email" name="email" id="email" placeholder="Ingresa tu correo" disabled value="<%= locals.user.email %>" >
                 <label for="firstName">Nombres</label>
-				<input type="text" name="firstName" id="firstName" placeholder=""    value="<%= (locals.userLogged.firstName)?locals.userLogged.firstName:'' %>" > 
+				<input type="text" name="firstName" id="firstName" placeholder=""    value="<%= (locals.user.firstName)?locals.user.firstName:'' %>" > 
 
 				<label for="lastName">Apellidos</label>
-				<input type="text" name="lastName" id="lastName" placeholder=""    value="<%= (locals.userLogged.lastName)?locals.userLogged.lastName:'' %>" > 
+				<input type="text" name="lastName" id="lastName" placeholder=""    value="<%= (locals.user.lastName)?locals.user.lastName:'' %>" > 
 
 				<label for="address">Dirección</label>
-				<input type="text" name="address" id="address" placeholder=""    value="<%= (locals.userLogged.address)?locals.userLogged.address:'' %>" > 
+				<input type="text" name="address" id="address" placeholder=""    value="<%= (locals.user.address)?locals.user.address:'' %>" > 
                 <label for="type">Tipo de usuario</label>
-				<input type="text" name="" id="type" placeholder="" disabled value="<%= (locals.userLogged.type)?locals.userLogged.type:'' %>" > 
+				<input type="text" name="" id="type" placeholder="" disabled value="<%= (locals.user.type)?locals.user.type.name:'' %>" > 
 
                 <snap class="file">Cambiar imagen de perfil:<input class="input-file" name="img-perfil" type="file"></snap>
                 <button type="submit">Actualizar</button>
