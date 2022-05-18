@@ -13,20 +13,20 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        timestamps: true,
+        timestamps: false,
         createdAt: true,
         updatedAt: true,
         deletedAt: true,
-        paranoid:true
+        paranoid:false
     }
-    const Type = sequelize.define(alias, cols); 
+    const Type = sequelize.define(alias, cols,config); 
 
     Type.associate=((models)=>{
         
         Type.hasMany(models.User,
             {
                 as: "users",
-                foreignKey: "movie_id",
+                foreignKey: "type_id",
             }
         )
 
