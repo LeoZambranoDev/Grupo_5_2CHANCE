@@ -13,13 +13,9 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        timestamps: true,
-        createdAt: true,
-        updatedAt: true,
-        deletedAt: true,
-        paranoid:true
+        timestamps: false
     }
-    const Brand = sequelize.define(alias, cols); 
+    const Brand = sequelize.define(alias, cols, config); 
 
     Brand.associate=((models)=>{
         

@@ -13,13 +13,10 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        timestamps: true,
-        createdAt: true,
-        updatedAt: true,
-        deletedAt: true,
-        paranoid:true
+        timestamps: false
+       
     }
-    const Ram = sequelize.define(alias, cols);
+    const Ram = sequelize.define(alias, cols, config);
 
     Ram.associate=((models)=>{
         

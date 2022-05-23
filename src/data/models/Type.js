@@ -13,13 +13,10 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        timestamps: false,
-        createdAt: true,
-        updatedAt: true,
-        deletedAt: true,
-        paranoid:false
+        timestamps: false
+        
     }
-    const Type = sequelize.define(alias, cols,config); 
+    const Type = sequelize.define(alias, cols, config); 
 
     Type.associate=((models)=>{
         
