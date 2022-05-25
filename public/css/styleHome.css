@@ -69,6 +69,34 @@ header {
     height: 38px;
 }
 
+.formSearch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.bar2 {
+    border-color: #dfdfdf;
+    background: #FFFFFF;
+    font-size: 22px;
+    margin-left: 10px;
+    border-radius: 30px;
+    height: 38px;
+    padding-left: 10px;
+}
+
+.btnSearch {
+    border-color: transparent;
+    background: #FFFFFF;
+    font-size: 22px;
+    margin-right: 5px;
+    border-radius: 30px;
+    color: #a0a0a2;
+}
+
+
+
 .content-right {
     display: none;
     color: white;
