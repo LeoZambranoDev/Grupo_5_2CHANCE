@@ -14,6 +14,54 @@ const main={
         //Obenemos el listado de productos
         let products= await productModel.getProducts()
         res.render('home',{products,productPro})
+    },
+    brands:(req,res)=>{
+        db.Brand.findAll()
+        .then(brands=>{
+            return res.json(brands)
+        }).catch(e=>{
+            console.log(e)
+        })
+    },
+    categories:(req,res)=>{
+        db.Category.findAll()
+        .then(x=>{
+            return res.json(x)
+        }).catch(e=>{
+            console.log(e)
+        })
+    },
+    colors:(req,res)=>{
+        db.Color.findAll()
+        .then(x=>{
+            return res.json(x)
+        }).catch(e=>{
+            console.log(e)
+        })
+    },
+    memories:(req,res)=>{
+        db.Memory.findAll()
+        .then(x=>{
+            return res.json(x)
+        }).catch(e=>{
+            console.log(e)
+        })
+    },
+    rams:(req,res)=>{
+        db.Ram.findAll()
+        .then(x=>{
+            return res.json(x)
+        }).catch(e=>{
+            console.log(e)
+        })
+    },
+    types:(req,res)=>{
+        db.Type.findAll()
+        .then(x=>{
+            return res.json(x)
+        }).catch(e=>{
+            console.log(e)
+        })
     }
 }
 
