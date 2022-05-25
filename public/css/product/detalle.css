@@ -37,7 +37,7 @@
     margin-bottom: 20px;
 }
 
-.btn-comprar{
+.btn-comprar, .btn-editar{
     padding-left: 65px;
     padding-right: 65px;
     padding-top: 10px;
