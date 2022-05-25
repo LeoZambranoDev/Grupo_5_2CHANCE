@@ -32,19 +32,16 @@ module.exports = (sequelize, dataTypes) => {
     Product.associate=((models)=>{
         
         
-        Product.belongsToMany(models.User,
+        Product.hasMany(models.Detail,
             {
-                    as: "users",
-                    through: 'users_has_products',
-                    foreignKey: "product_id",
-                    otherKey: "user_id",
-                    timestamps:false
+                    as: "details",
+                    foreignKey: "product_id"
             }
         )
         Product.belongsTo(models.Color,
             {
                     as: "color",
-                    foreignKey: "color_id",
+                    foreignKey: "color_id"
             }
         )
 
@@ -52,7 +49,7 @@ module.exports = (sequelize, dataTypes) => {
         Product.belongsTo(models.Brand,
             {
                     as: "brand",
-                    foreignKey: "brand_id",
+                    foreignKey: "brand_id"
             }
         )
 
@@ -60,7 +57,7 @@ module.exports = (sequelize, dataTypes) => {
         Product.belongsTo(models.Memory,
             {
                     as: "memory",
-                    foreignKey: "memory_id",
+                    foreignKey: "memory_id"
             }
         )
         
@@ -68,7 +65,7 @@ module.exports = (sequelize, dataTypes) => {
         Product.belongsTo(models.Ram,
             {
                     as: "ram",
-                    foreignKey: "ram_id",
+                    foreignKey: "ram_id"
             }
         )
         
@@ -76,7 +73,7 @@ module.exports = (sequelize, dataTypes) => {
         Product.belongsTo(models.Category,
             {
                     as: "category",
-                    foreignKey: "category_id",
+                    foreignKey: "category_id"
             }
         )
     })
