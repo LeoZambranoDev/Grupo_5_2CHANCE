@@ -25,55 +25,69 @@
         <form class="form-product-update" action="/product/<%= product.id %>?_method=PUT" method="POST"
           enctype="multipart/form-data">
           <input type="text" name="name" placeholder="Nombre del producto" value="<%= product.name %>">
-          <!-- <input type="text" placeholder="Categoría"> -->
+          
           <select class="select" name="category" id="">
-            <option value="ninguno">Categoría:</option>
-            <option <% if (product.category=='ninguno') { %>selected<% } %> value="">Ninguno</option>
-            <option <% if (product.category=='destacado') { %>selected<% } %> value="MostViewed">Destacado</option>
+            <option value="">Categoría:</option>
+            <% if (locals.categories) { %>
+
+              <% categories.forEach(element=> { %>
+                <option <% if (product.category_id == element.id ) { %>selected<% } %> value="<%= element.id %> "><%= element.name %> </option>
+              <% }) %>
+
+            <% } %>
           </select>
-          <!-- <input type="text" placeholder="Color"> -->
+
           <select class="select" name="color" id="">
-            <option value="ninguno">Color:</option>
-            <option <% if (product.color=='blue') { %>selected<% } %> value="blue">Azul</option>
-            <option <% if (product.color=='red' ) { %>selected<% } %> value="red">Rojo</option>
-            <option <% if (product.color=='black') { %>selected<% } %> value="black">Negro</option>
-            <option <% if (product.color=='white') { %>selected<% } %> value="white">Blanco</option>
+            <option value="">Color:</option>
+
+            <% if (locals.colors) { %>
+
+              <% colors.forEach(element=> { %>
+                <option <% if (product.color_id == element.id ) { %>selected<% } %> value="<%= element.id %> "><%= element.name %> </option>
+              <% }) %>
+
+            <% } %>
+            
           </select>
           <!-- <input type="text" placeholder="Marca"> -->
           <select class="select" name="mark" id="">
-            <option value="ninguno">Marca:</option>
-            <option <% if (product.mark=='Iphone') { %>selected<% } %> value="Iphone">Iphone</option>
-            <option <% if (product.mark=='Xiaomi') { %>selected<% } %> value="Xiaomi">Xiaomi</option>
-            <option <% if (product.mark=='Samsung') { %>selected<% } %> value="Samsung">Samsung</option>
-            <option <% if (product.mark=='Motorola') { %>selected<% } %> value="Motorola">Motorola</option>
+            <option value="">Marca:</option>
+            <% if (locals.brands) { %>
+
+              <% brands.forEach(element=> { %>
+                <option <% if (product.brand_id == element.id ) { %>selected<% } %> value="<%= element.id %> "><%= element.name %> </option>
+              <% }) %>
+
+            <% } %>
           </select>
           <!-- <input type="text" placeholder="Memoria"> -->
-          <select class="select" name="memory" id="" >
-            <option value="ninguno">Memoria:</option>
-            <option <% if (product.memory=='4GB') { %>selected<% } %> value="1">4GB</option>
-            <option <% if (product.memory=='8GB') { %>selected<% } %> value="2">8GB</option>
-            <option <% if (product.memory=='16GB') { %>selected<% } %> value="3">16GB</option>
-            <option <% if (product.memory=='32GB') { %>selected<% } %> value="4">32GB</option>
-            <option <% if (product.memory=='64GB') { %>selected<% } %> value="5">64GB</option>
-            <option <% if (product.memory=='128GB') { %>selected<% } %> value="6">128GB</option>
-            <option <% if (product.memory=='256GB') { %>selected<% } %> value="7">256GB</option>
+          <select class="select" name="memory" id="">
+            <option value="">Memoria:</option>
+            <% if (locals.memories) { %>
+
+              <% memories.forEach(element=> { %>
+                <option <% if (product.memory_id == element.id ) { %>selected<% } %> value="<%= element.id %> "><%= element.name %> </option>
+              <% }) %>
+
+            <% } %>
           </select>
 
-          <select class="select" name="ram" id="" >
-            <option value="ninguno">Ram:</option>
-            <option <% if (product.ram=='4GB') { %>selected<% } %> value="1">1GB</option>
-            <option <% if (product.ram=='8GB') { %>selected<% } %> value="2">2GB</option>
-            <option <% if (product.ram=='16GB') { %>selected<% } %> value="3">4GB</option>
-            <option <% if (product.ram=='32GB') { %>selected<% } %> value="4">8GB</option>
-            <option <% if (product.ram=='64GB') { %>selected<% } %> value="5">16GB</option>
-            <option <% if (product.ram=='128GB') { %>selected<% } %> value="6">32GB</option>
-            <option <% if (product.ram=='256GB') { %>selected<% } %> value="7">64GB</option>
+          <select class="select" name="ram" id="">
+            <option value="">Ram:</option>
+            <% if (locals.rams) { %>
+
+              <% rams.forEach(element=> { %>
+                <option <% if (product.ram_id == element.id ) { %>selected<% } %> value="<%= element.id %> "><%= element.name %> </option>
+              <% }) %>
+
+            <% } %>
           </select>
           <input type="text" name="price" placeholder="Precio" value="<%= product.price %>">
-          <snap class="file">Imagen del dispositivo:<input type="file" class="input-file" name="imgCel" id="imgsCel" accept="image/jpg, image/jpeg, image/png" ></snap>
+          <snap class="file">Imagen del dispositivo:<input type="file" class="input-file" name="imgCel" id="imgsCel"
+              accept="image/jpg, image/jpeg, image/png"></snap>
           <img src="/img/products/<%= product.product_img %> " alt="">
           <div class="btn-content"><button type="submit">EDITAR</button></div>
-          <input class="oculto" type="text" value="<%= product.product_img %>" name="imgCel_old"> 
+          <input class="oculto" type="text" value="<%= product.product_img %>" name="imgCel_old">
         </form>
       </div>
     </main>
