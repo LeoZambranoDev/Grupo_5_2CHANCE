@@ -23,7 +23,7 @@ module.exports = (sequelize, dataTypes) => {
         Ram.hasMany(models.Product,
             {
                 as: "products",
-                foreignKey: "ram_id",
+                foreignKey: "ram_id"
             }
         )
 
