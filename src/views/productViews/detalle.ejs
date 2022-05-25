@@ -31,8 +31,15 @@
         <div class="precio">
          $ <%= product.price %> 
         </div>
-        <a class="btn-comprar">COMPRAR</a>
+        <% if ( locals.isLogged && (userLogged.type_id == 1 || userLogged.type_id == 3)) { %>
+          <a class="btn-editar" href="/product/update/<%= product.id %>">EDITAR</a>
+         
+         
+          <% } else { %>
+            <a class="btn-comprar">COMPRAR</a>
         <a class="btn-agregar">AGREGAR AL CARRITO</a>
+            <% } %>
+        
       </div>
       <div class="caracts">
         <div class="title-caract">Características del producto</div>
@@ -49,7 +56,7 @@
         </div>
         <% products.forEach(element => { %>
          <div class="item-destacado">
-            <img src="/img/products/<%= element.product_img %>" alt="">
+          <img src="/img/products/<%= element.image%>" alt="">
             <div class="nombre">
                 <a href="/product/detail/<%= element.id %>"><%= element.name %> </a>
             </div>
