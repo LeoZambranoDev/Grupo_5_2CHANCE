@@ -33,7 +33,9 @@
         </div>
         <% if ( locals.isLogged && (userLogged.type_id == 1 || userLogged.type_id == 3)) { %>
           <a class="btn-editar" href="/product/update/<%= product.id %>">EDITAR</a>
-         
+          <form action="/product/<%= product.id %>?_method=DELETE" method="POST">
+<button class="btn-eliminar" type="submit">ELIMINAR</button>
+          </form>
          
           <% } else { %>
             <a class="btn-comprar">COMPRAR</a>

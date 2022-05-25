@@ -315,7 +315,7 @@ color: #23233D
 footer {
     background-color: #F6F6F6;
     color: #27293B;
-    font-size: la;
+  
     height: 15rem;
 
 }
@@ -324,19 +324,28 @@ footer {
     background-color: #F6F6F6;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     width: 100%;
     align-items: center;
-    height: 15rem;
+    padding-top: 40px;
+    padding-bottom: 40px;
 
 }
-.leftFooter{
+
+
+
+.logoFooter {
     text-align: center;
-    border-color: #FF9900;   
+   
 }
-
-
-.logoFooter img {
-    width: 150%;
+.logoFooter h3 {
+    font-family: cursive;
+}
+.logoFooter img{
+    width: 150px;
+}
+.icons{
+margin: 20px 0px;
 }
 .icons i{
     font-size: 2rem;
