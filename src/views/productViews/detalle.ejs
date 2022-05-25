@@ -7,6 +7,8 @@
     <!-- metas and lynks -->
 
     <link rel="stylesheet" href="/css/product/detalle.css" />
+    
+    <link rel="stylesheet" href="/css/product/componentCard.css">
     <title>Inicio</title>
   </head>
 
@@ -54,17 +56,10 @@
         <div class="title-interes">
             TE PUEDE INTERESAR
         </div>
-        <% products.forEach(element => { %>
-         <div class="item-destacado">
-          <img src="/img/products/<%= element.image%>" alt="">
-            <div class="nombre">
-                <a href="/product/detail/<%= element.id %>"><%= element.name %> </a>
-            </div>
-            <div class="precio">
-               $ <%= element.price %> 
-            </div>
-        </div>
-        <% }) %>
+        
+        <% if (locals.products) { %>
+          <%- include('../partials/componentCard',{products})  %> 
+      <% } %>
         
         
     </section>
