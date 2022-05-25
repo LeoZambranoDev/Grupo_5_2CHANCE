@@ -1,6 +1,4 @@
-const path =require('path')
-const fs= require('fs')
-
+const { Op } = require("sequelize");
 const db= require('../data/models')
 
 module.exports={
@@ -11,7 +9,9 @@ module.exports={
 	},
 	//Obtener producto por Id
 	getProductById:async function(id){
-		let product= await db.Product.findByPk(id)
+		let product= await db.Product.findByPk(id,{
+			include:['color','ram','memory','brand']
+		})
 		return product
 	},
 	//Obtener productos por categoría
@@ -47,5 +47,16 @@ module.exports={
 				id:idProduct
 			}
 		})
+	},
+
+	getProductsByName:async(x)=>{
+		 let products = await db.Product.findAll({
+			where:{
+				name:{
+					[Op.like]: '%'+ x + '%'
+				} 
+			}
+		})
+		return products
 	}
 }

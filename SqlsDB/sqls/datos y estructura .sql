@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `bd_project_sprints` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `bd_project_sprints`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: bd_project_sprints
@@ -29,7 +27,7 @@ CREATE TABLE `brands` (
   `name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +36,7 @@ CREATE TABLE `brands` (
 
 LOCK TABLES `brands` WRITE;
 /*!40000 ALTER TABLE `brands` DISABLE KEYS */;
-INSERT INTO `brands` VALUES (1,'Main'),(2,'MostViewed'),(3,'InSale');
+INSERT INTO `brands` VALUES (1,'Samsung'),(2,'Apple'),(3,'Xiaomi'),(4,'Vivo'),(5,'Oppo'),(6,'Huawei'),(7,'Motorola'),(8,'LG');
 /*!40000 ALTER TABLE `brands` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,7 +50,7 @@ DROP TABLE IF EXISTS `carts`;
 CREATE TABLE `carts` (
   `id` int NOT NULL,
   `user_id` int NOT NULL,
-  `status` varchar(30) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
   `createdAt` date DEFAULT NULL,
   `upatedAt` date DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -107,7 +105,7 @@ CREATE TABLE `colors` (
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,6 +114,7 @@ CREATE TABLE `colors` (
 
 LOCK TABLES `colors` WRITE;
 /*!40000 ALTER TABLE `colors` DISABLE KEYS */;
+INSERT INTO `colors` VALUES (1,'Azul'),(2,'Rojo'),(3,'Negro'),(4,'Amarillo'),(5,'Blanco'),(6,'Gris'),(7,'Rosa'),(8,'Dorado'),(9,'Otro');
 /*!40000 ALTER TABLE `colors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,12 +128,12 @@ DROP TABLE IF EXISTS `details`;
 CREATE TABLE `details` (
   `id` int NOT NULL,
   `product_id` int NOT NULL,
-  `carts_id` int NOT NULL,
+  `cart_id` int NOT NULL,
   `deletedAt` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_details_products1_idx` (`product_id`),
-  KEY `fk_details_Carts1_idx` (`carts_id`),
-  CONSTRAINT `fk_details_Carts1` FOREIGN KEY (`carts_id`) REFERENCES `carts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  KEY `fk_details_Carts1_idx` (`cart_id`),
+  CONSTRAINT `fk_details_Carts1` FOREIGN KEY (`cart_id`) REFERENCES `carts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_details_products1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -149,27 +148,28 @@ LOCK TABLES `details` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `memory`
+-- Table structure for table `memories`
 --
 
-DROP TABLE IF EXISTS `memory`;
+DROP TABLE IF EXISTS `memories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `memory` (
+CREATE TABLE `memories` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `memory`
+-- Dumping data for table `memories`
 --
 
-LOCK TABLES `memory` WRITE;
-/*!40000 ALTER TABLE `memory` DISABLE KEYS */;
-/*!40000 ALTER TABLE `memory` ENABLE KEYS */;
+LOCK TABLES `memories` WRITE;
+/*!40000 ALTER TABLE `memories` DISABLE KEYS */;
+INSERT INTO `memories` VALUES (4,'4GB'),(5,'8GB'),(6,'16GB'),(7,'32GB'),(8,'64GB'),(9,'128GB'),(10,'256GB');
+/*!40000 ALTER TABLE `memories` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -189,7 +189,6 @@ CREATE TABLE `products` (
   `brand_id` int DEFAULT NULL,
   `memory_id` int DEFAULT NULL,
   `ram_id` int DEFAULT NULL,
-  `bill_id` int DEFAULT NULL,
   `createdAt` date DEFAULT NULL,
   `updatedAt` date DEFAULT NULL,
   `deletedAt` date DEFAULT NULL,
@@ -203,9 +202,9 @@ CREATE TABLE `products` (
   CONSTRAINT `fk_Products_Brands1` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_Products_Categories1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_Products_Color1` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_Products_memory1` FOREIGN KEY (`memory_id`) REFERENCES `memory` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_Products_Ram1` FOREIGN KEY (`ram_id`) REFERENCES `ram` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `fk_Products_memory1` FOREIGN KEY (`memory_id`) REFERENCES `memories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_Products_Ram1` FOREIGN KEY (`ram_id`) REFERENCES `rams` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,32 +213,33 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'iPhone 8 Plus',1500000,NULL,'iPhone8Plus.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'iPhone 12 mini',2700000,NULL,'iph12minihorizontal.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,'iPhone 12 pro max',5000000,2,'12promaxhorizontal.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'Samsung Galaxy Note 10 lite',1300000,2,'GalaxyNote10Lite.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(5,'Huawei Y7',350000,2,'HuaweiY7.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,'iPhone 13 ',3100000,1,'ip.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'iPhone 12 pro',3800000,2,'ip12pro.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,'LG k10 ',375000,2,'LGK10Lte.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'Motorola Nexus 6',700000,NULL,'MotorolaNexus6.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(10,'Nokia 1100 ',20000000,NULL,'nokia.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(11,'Oppo A54',900000,3,'OppoA54.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(12,'Realme GT 5G',1100000,3,'RealmeGt5g.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(13,'Sony Xperia Gen 1',2800000,3,'SonyXperia.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(14,'Xiaomi 12',3000000,3,'45461231654654654.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(15,'Poco F4 GT',1850000,3,'5646542313456.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(16,'Xiaomi Redmi 10',790000,NULL,'8875123185465465.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(17,'LG Flex 2 ',500000,NULL,'33221545748.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(18,'Sony Ericsson Xperia Neo V',290000,NULL,'456465456456231231321.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(19,'Sony Ericsson W580',315000,NULL,'88979875423123156456.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(20,'Nokia X2-00',190000,NULL,'54648974654321231.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(21,'ejemplo666',444,NULL,'1652753661315.png',NULL,NULL,NULL,NULL,NULL,'2022-05-17','2022-05-17',NULL);
+INSERT INTO `products` VALUES (1,'iPhone 8 Plus',1500000,NULL,'iPhone8Plus.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'iPhone 12 mini',2700000,NULL,'iph12minihorizontal.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,'iPhone 12 pro max',5000000,2,'12promaxhorizontal.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'Samsung Galaxy Note 10 lite',1300000,2,'GalaxyNote10Lite.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(5,'Huawei Y7',350000,2,'HuaweiY7.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,'iPhone 13 ',3100000,1,'ip.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'iPhone 12 pro',3800000,2,'ip12pro.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,'LG k10 ',375000,2,'LGK10Lte.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'Motorola Nexus 6',700000,NULL,'MotorolaNexus6.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(10,'Nokia 1100 ',20000000,NULL,'nokia.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(11,'Oppo A54',900000,3,'OppoA54.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(12,'Realme GT 5G',1100000,3,'RealmeGt5g.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(13,'Sony Xperia Gen 1',2800000,3,'SonyXperia.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(14,'Xiaomi 12',3000000,3,'45461231654654654.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(15,'Poco F4 GT',1850000,3,'5646542313456.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(16,'Xiaomi Redmi 10',790000,NULL,'8875123185465465.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(17,'LG Flex 2 ',500000,NULL,'33221545748.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(18,'Sony Ericsson Xperia Neo V',290000,NULL,'456465456456231231321.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(19,'Sony Ericsson W580',315000,NULL,'88979875423123156456.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(20,'Nokia X2-00',190000,NULL,'54648974654321231.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `ram`
+-- Table structure for table `rams`
 --
 
-DROP TABLE IF EXISTS `ram`;
+DROP TABLE IF EXISTS `rams`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `ram` (
+CREATE TABLE `rams` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `ram`
+-- Dumping data for table `rams`
 --
 
-LOCK TABLES `ram` WRITE;
-/*!40000 ALTER TABLE `ram` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ram` ENABLE KEYS */;
+LOCK TABLES `rams` WRITE;
+/*!40000 ALTER TABLE `rams` DISABLE KEYS */;
+INSERT INTO `rams` VALUES (1,'2GB'),(2,'4GB'),(3,'8GB'),(4,'16GB'),(5,'32GB'),(6,'64GB'),(7,'128GB');
+/*!40000 ALTER TABLE `rams` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -315,4 +315,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-23 18:26:38
+-- Dump completed on 2022-05-24 19:46:56

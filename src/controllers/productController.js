@@ -38,10 +38,11 @@ const product = {
 				"id": products.length + 1,
 				"name": req.body.name,
 				"price": req.body.price,
-				"category": req.body.category,
-				"color": req.body.color,
-				"mark": req.body.mark,
-				"memory": req.body.memory,
+				"category_id": req.body.category,
+				"color_id": req.body.color,
+				"brand_id": req.body.mark,
+				"memory_id": req.body.memory,
+				"ram_id": req.body.ram,
 				"image": nameImg
 			}
 
@@ -130,6 +131,11 @@ const product = {
 		} else {
 			res.redirect('/user/login')
 		}
+	},
+	categorySearch:async(req,res) => {
+		let search=req.body.search
+		let products= await productModel.getProductsByName(search)
+		res.render('./productViews/categories', { products })
 	}
 }
 

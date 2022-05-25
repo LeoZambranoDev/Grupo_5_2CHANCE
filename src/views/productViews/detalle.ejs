@@ -43,10 +43,10 @@
       </div>
       <div class="caracts">
         <div class="title-caract">Características del producto</div>
-        <div class="caracteristicas"><span class="dot"></span> Color:    <div class="valor"><%= product.color %></div></div>
-        <div class="caracteristicas"><span class="dot"></span> Marca:    <div class="valor"><%= product.brand %></div></div>
-        <div class="caracteristicas"><span class="dot"></span> Almacenamiento:     <div class="valor"><%= product.memory %></div></div>
-        <div class="caracteristicas"><span class="dot"></span> Memoria Ram:    <div class="valor"><%= product.ram %></div></div>
+        <div class="caracteristicas"><span class="dot"></span> Color:    <div class="valor"><%= product.color?product.color.name:'' %></div></div>
+        <div class="caracteristicas"><span class="dot"></span> Marca:    <div class="valor"><%= product.brand?product.brand.name:'' %></div></div>
+        <div class="caracteristicas"><span class="dot"></span> Almacenamiento:     <div class="valor"><%= product.memory?product.memory.name:'' %></div></div>
+        <div class="caracteristicas"><span class="dot"></span> Memoria Ram:    <div class="valor"><%= product.ram?product.ram.name:'' %></div></div>
       </div>
 
 

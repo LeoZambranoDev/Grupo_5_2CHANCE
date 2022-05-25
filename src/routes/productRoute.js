@@ -24,6 +24,7 @@ router.get('/shopingCart', productController.shopingCartView)   //view ShoppingC
 router.post('/register',uploadProduct.single('imgCel'),ValidationRegister,productController.registerProduct)    // add product
 router.put('/:id',uploadProduct.single('imgCel'),productController.updateProduct)//update product
 router.delete('/:id',productController.deleteProduct)      //delete product
+router.post('/categories',productController.categorySearch)      //view Categories
 
 
 
