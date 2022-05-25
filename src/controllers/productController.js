@@ -1,3 +1,5 @@
+const fetch = require( 'node-fetch')
+
 const productModel = require('../models/productModel')
 
 const product = {
@@ -65,9 +67,17 @@ const product = {
 			if (req.session.userLogged.type.name == 'Employee' || req.session.userLogged.type.name == 'Admin') {
 				//Obtenemos el producto por id
 				let product = await productModel.getProductById(req.params.id)
-				//verificamos que haya un resultado
+				
+				//Obtenemos los datos para cargar dinámicamente los selects del html
+				let brands = await fetch('http://localhost:8000/api/brands').then(list=>list.json())
+				let colors = await fetch('http://localhost:8000/api/colors').then(list=>list.json())
+				let memories = await fetch('http://localhost:8000/api/memories').then(list=>list.json())
+				let categories = await fetch('http://localhost:8000/api/categories').then(list=>list.json())
+				let rams = await fetch('http://localhost:8000/api/rams').then(list=>list.json())
+		
+				// verificamos que haya un resultado
 				if (product) {
-					res.render('./productViews/update', { product })
+					res.render('./productViews/update', { product, brands, colors, memories, categories, rams })
 				}
 				else {
 					res.send('Error, no se ha encontrado el teléfono correspondiente al id' + req.params.id)
