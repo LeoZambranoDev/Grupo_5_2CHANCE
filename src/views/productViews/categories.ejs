@@ -2,27 +2,32 @@
 <html lang="es">
 
 <head>
-    
+
     <!-- metas and lynks -->
     <%- include('../partials/metasBasics') %>
-    <!-- metas and lynks -->
-    
-    <link rel="stylesheet" href="/css/product/categories.css">
-    <title>Inicio</title>
+        <!-- metas and lynks -->
+
+        <link rel="stylesheet" href="/css/product/categories.css">
+        <title>Inicio</title>
 </head>
 
 <body>
 
     <!-- header -->
     <%- include('../partials/header') %>
-    <!-- header -->
+        <!-- header -->
 
-    <main>
-        
+        <main>
+
+            <form class="formSearch" action="/product/categories" method="POST">
+                <input name="search" type="text" class="bar2" placeholder="Buscar">
+                <button class="btnSearch" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+
             <form class="form-filters" action="/" method="post">
 
                 <div class="title-form">Filtrar y/o ordenar</div>
-                
+
                 <div class="filter">
 
                     <snap class="title">Marca</snap>
@@ -53,7 +58,7 @@
 
                 </div>
 
-                
+
                 <div class="filter">
                     <snap class="title">Ordenar Precio</snap>
                     <div class="item">
@@ -116,34 +121,38 @@
                     </div>
 
                 </div>
-                
+
                 <input class="btn-filtrar" type="submit" value="Filtrar">
             </form>
 
-      
+
+
+
             <section class="content-cels">
                 <div class="title-cels">
                     CELULARES
                 </div>
-                <% products.forEach(element => { %>
-                 <div class="item-cel">
-                    <img src="/img/products/<%= element.image %>" alt="">
-                    <div class="nombre">
-                        <a href="/product/detail/<%= element.id %>"><%= element.name %> </a>
+                <% products.forEach(element=> { %>
+                    <div class="item-cel">
+                        <img src="/img/products/<%= element.image %>" alt="">
+                        <div class="nombre">
+                            <a href="/product/detail/<%= element.id %>">
+                                <%= element.name %>
+                            </a>
+                        </div>
+                        <div class="precio">
+                            $ <%= element.price %>
+                        </div>
                     </div>
-                    <div class="precio">
-                       $ <%= element.price %> 
-                    </div>
-                </div>
-                <% }) %>
-                
-            </section>
-     
-    </main>
+                    <% }) %>
 
-    <!-- footer -->
-    <%- include('../partials/footer') %>
-    <!-- footer -->
+            </section>
+
+        </main>
+
+        <!-- footer -->
+        <%- include('../partials/footer') %>
+            <!-- footer -->
 
 </body>
 
