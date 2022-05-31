@@ -51,7 +51,7 @@
     background: #34DFB6;
     margin-bottom: 20px;
 }
-.btn-agregar{
+.btn-agregar, .btn-eliminar{
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 10px;
