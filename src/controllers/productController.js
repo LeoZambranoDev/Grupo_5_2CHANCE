@@ -134,10 +134,11 @@ const product = {
 		let products =await productModel.getProducts()
 		res.render('./productViews/categories', { products })
 	},
-	shopingCartView: (req, res) => {
+	shopingCartView: async(req, res) => {
 		//verificamos que el usuario haya iniciado sesion
 		if (req.session.userLogged) {
-			res.render('./productViews/shopCart')
+			let products =await productModel.getProductByCategory('MostViewed')
+			res.render('./productViews/shopCart',{products})
 		} else {
 			res.redirect('/user/login')
 		}
