@@ -9,7 +9,7 @@ const user = {
     registerView: (req, res) => {
         res.render('./userViews/registerUser')
     },
-    register: async(req, res, error) => {
+    register: async(req, res) => {
         //Requerimos la función para capturar los errores almacenados en req
         const { validationResult } = require('express-validator')
         let errors = validationResult(req)
@@ -28,16 +28,14 @@ const user = {
 
 
         // //error de multer con la imagen
-        // if (error) {
-        //     error()
-        //     console.log(error)
-        //     errorsList.push({
-        //         value: '',
-        //         msg: 'La imagen tiene un formato inválido, solo formatos jpg, jpeg,png o gif.',
-        //         param: 'img',
-        //         location: 'body'
-        //     })
-        // }
+        if (req.fileValidationError) {
+            errorsList.push({
+                value: '',
+                msg: req.fileValidationError,
+                param: 'img',
+                location: 'body'
+            })
+        }
 
         //Verificamos incialmente la validación de los inputs del form
         if (errors.isEmpty()) {
