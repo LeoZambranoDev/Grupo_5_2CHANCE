@@ -9,11 +9,35 @@ const user = {
     registerView: (req, res) => {
         res.render('./userViews/registerUser')
     },
-    register: (req, res) => {
+    register: async(req, res, error) => {
         //Requerimos la función para capturar los errores almacenados en req
         const { validationResult } = require('express-validator')
         let errors = validationResult(req)
         let errorsList = errors.errors
+
+        //Validar que no exista un email igual
+        let emailExist= await userModel.existEmail(req.body.email)
+        if (emailExist) {
+            errorsList.push({
+                value: '',
+                msg: 'El email ya se encuentra registrado',
+                param: 'email',
+                location: 'body'
+            })
+        }
+
+
+        // //error de multer con la imagen
+        // if (error) {
+        //     error()
+        //     console.log(error)
+        //     errorsList.push({
+        //         value: '',
+        //         msg: 'La imagen tiene un formato inválido, solo formatos jpg, jpeg,png o gif.',
+        //         param: 'img',
+        //         location: 'body'
+        //     })
+        // }
 
         //Verificamos incialmente la validación de los inputs del form
         if (errors.isEmpty()) {
@@ -54,7 +78,7 @@ const user = {
             }
         }
         else {
-            console.log(errorsList);
+            // console.log(errorsList);
             res.render('userViews/registerUser', { errorsList })
         }
     },
