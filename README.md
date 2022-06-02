@@ -11,8 +11,6 @@ Integrantes:
 
    Santiago Lopez: Tengo 27 Años, me gradue de biotecnologia en el Colegio Mayor de Antioquia y actualmente me encuentro estudiando programacion FullStack, tuve encuentros con la programacion en mi vida profesional con lenguajes como SQL para bases de datos y HTML, sin embargo soy novato en JavaScript y otros lenguajes de programacion, me gustaria seguir aprendiendo para ejercer la programacion a nivel profesional.
     
-   Maria Alejandra Hoyos: Soy Diseñadora de Experiencia y de Interfaz de Usuario, con pregrado en Arquitectura y un background en Ciencias Sociales. Trabajo en un estudio de Diseño y desarrollo de productos digitales, enfocado principalmente en Educación, Salud y recientemente incursionando en Videojuegos.
-Tambien soy mamá y tengo 31 años. 
 
 Links:
     https://listado.mercadolibre.com.co/celulares-segunda : nos gustaron las características que muestran cuando se selecciona determinado celular. Aparecen fotos desde diferentes ángulos y en letra más grande datos relevantes como la memoria del dispositivo. Es fácil encontrar el botón de comprar.
