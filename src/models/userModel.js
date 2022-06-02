@@ -31,6 +31,10 @@ userModel = {
 			}
 		})
 		return user
+	},
+	existEmail:async function(email){
+		let aux= await this.getUserByEmail(email)
+		return aux
 	}
 }
 // userModel.getUserByField('email', 'ernestino@correo.com')
