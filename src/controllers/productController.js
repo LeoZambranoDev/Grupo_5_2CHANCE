@@ -31,7 +31,15 @@ const product = {
 		if (req.file) {
 			nameImg = req.file.filename
 		}
-
+    // //error de multer con la imagen
+	if (req.fileValidationError) {
+		errorsList.push({
+			value: '',
+			msg: req.fileValidationError,
+			param: 'img',
+			location: 'body'
+		})
+	}
 		//Verificamos que no hayan errores
 		if (errors.isEmpty()) {
 

@@ -12,7 +12,21 @@ const storage = multer.diskStorage({
   })
 
 //Importante: Esta varibale es la ocupada para subir la img, upload.single('nameInput')
-const upload = multer({ storage })
 
+const uploadProduct = multer(
+    { 
+        storage,
+        fileFilter: function (req, file, cb) {
+            console.log(file.mimetype);
+            let typeArray = file.mimetype.split('/');
+            let fileType = typeArray[1];
+            if (fileType == 'jpg' || fileType == 'png'|| fileType == 'jpeg'|| fileType == 'gif') {
+              cb(null, true);
+            } else {
+                req.fileValidationError='Formato no soportado, fomatos válidos: jpg, jpeg, png, gif'
+              cb(null,false,new Error('mensaje de error 123123'))
+            }
+        }
+    })
 
-module.exports=upload
+module.exports= uploadProduct
