@@ -1,4 +1,4 @@
-const fetch = require( 'node-fetch')
+const fetch = require('node-fetch')
 
 const productModel = require('../models/productModel')
 
@@ -31,15 +31,15 @@ const product = {
 		if (req.file) {
 			nameImg = req.file.filename
 		}
-    // //error de multer con la imagen
-	if (req.fileValidationError) {
-		errorsList.push({
-			value: '',
-			msg: req.fileValidationError,
-			param: 'img',
-			location: 'body'
-		})
-	}
+		// //error de multer con la imagen
+		if (req.fileValidationError) {
+			errorsList.push({
+				value: '',
+				msg: req.fileValidationError,
+				param: 'img',
+				location: 'body'
+			})
+		}
 		//Verificamos que no hayan errores
 		if (errors.isEmpty()) {
 
@@ -75,14 +75,14 @@ const product = {
 			if (req.session.userLogged.type.name == 'Employee' || req.session.userLogged.type.name == 'Admin') {
 				//Obtenemos el producto por id
 				let product = await productModel.getProductById(req.params.id)
-				
+
 				//Obtenemos los datos para cargar dinámicamente los selects del html
-				let brands = await fetch('http://localhost:8000/api/brands').then(list=>list.json())
-				let colors = await fetch('http://localhost:8000/api/colors').then(list=>list.json())
-				let memories = await fetch('http://localhost:8000/api/memories').then(list=>list.json())
-				let categories = await fetch('http://localhost:8000/api/categories').then(list=>list.json())
-				let rams = await fetch('http://localhost:8000/api/rams').then(list=>list.json())
-		
+				let brands = await fetch('http://localhost:8000/api/brands').then(list => list.json())
+				let colors = await fetch('http://localhost:8000/api/colors').then(list => list.json())
+				let memories = await fetch('http://localhost:8000/api/memories').then(list => list.json())
+				let categories = await fetch('http://localhost:8000/api/categories').then(list => list.json())
+				let rams = await fetch('http://localhost:8000/api/rams').then(list => list.json())
+
 				// verificamos que haya un resultado
 				if (product) {
 					res.render('./productViews/update', { product, brands, colors, memories, categories, rams })
@@ -90,12 +90,12 @@ const product = {
 				else {
 					res.send('Error, no se ha encontrado el teléfono correspondiente al id' + req.params.id)
 				}
-	
+
 			} else {
 				res.redirect('user/login')
 			}
-			
-		}else{
+
+		} else {
 			res.send('error en 79-productController')
 		}
 
@@ -104,7 +104,7 @@ const product = {
 	updateProduct: (req, res) => {
 		//Declaramos el producto que se actualizará
 		let product = {
-			"id":req.params.id,
+			"id": req.params.id,
 			"name": req.body.name,
 			"price": req.body.price,
 			"category_id": req.body.category,
@@ -124,11 +124,11 @@ const product = {
 
 		res.redirect('/')
 	},
-	detailView:async (req, res) => {
+	detailView: async (req, res) => {
 		//Obtenemos el producto por id
-		let product =await productModel.getProductById(req.params.id)
+		let product = await productModel.getProductById(req.params.id)
 		//Obtenemos los productos correspondientes a la categoria
-		let products =await productModel.getProductByCategory('MostViewed')
+		let products = await productModel.getProductByCategory('MostViewed')
 		res.render('./productViews/detalle', { product, products })
 	},
 	deleteProduct: async (req, res) => {
@@ -137,23 +137,23 @@ const product = {
 
 		res.redirect('/')
 	},
-	categoriesView:async (req, res) => {
+	categoriesView: async (req, res) => {
 		//Obtenemos los productos
-		let products =await productModel.getProducts()
+		let products = await productModel.getProducts()
 		res.render('./productViews/categories', { products })
 	},
-	shopingCartView: async(req, res) => {
+	shopingCartView: async (req, res) => {
 		//verificamos que el usuario haya iniciado sesion
 		if (req.session.userLogged) {
-			let products =await productModel.getProductByCategory('MostViewed')
-			res.render('./productViews/shopCart',{products})
+			let products = await productModel.getProductByCategory('MostViewed')
+			res.render('./productViews/shopCart', { products })
 		} else {
 			res.redirect('/user/login')
 		}
 	},
-	categorySearch:async(req,res) => {
-		let search=req.body.search
-		let products= await productModel.getProductsByName(search)
+	categorySearch: async (req, res) => {
+		let search = req.body.search
+		let products = await productModel.getProductsByName(search)
 		res.render('./productViews/categories', { products })
 	}
 }
