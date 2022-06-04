@@ -23,19 +23,20 @@
     <main>
       <div class="container-product-register">
         <div class="title-register">
-          REGISTRAR PRODUCTO: 
+          REGISTRAR PRODUCTO:
         </div>
-        <form class="form-product-register" action="/product/register" method="POST"
-          enctype="multipart/form-data">
+        <form class="form-product-register" action="/product/register" method="POST" enctype="multipart/form-data">
 
-          <div class="errorsList"><% if (typeof errorsList !='undefined') { %>
-            <% errorsList.forEach(element => { %>
-                <div class="error">- <%= element.msg %></div>
-            <% }) %> 
-            <% } %> 
-        </div>
+          <div class="errorsList">
+            <% if (typeof errorsList !='undefined' ) { %>
+              <% errorsList.forEach(element=> { %>
+                <div class="error">- <%= element.msg %>
+                </div>
+              <% }) %>
+            <% } %>
+          </div>
 
-          <input type="text" name="name" placeholder="Nombre del producto" >
+          <input type="text" name="name" id="name" placeholder="Nombre del producto">
 
           <select class="select" name="category" id="category">
             <option value="">Categoría:</option>
@@ -49,16 +50,18 @@
             <option value="">Marca:</option>
           </select>
 
-          <select class="select" name="memory" id="memory" >
+          <select class="select" name="memory" id="memory">
             <option value="">Memoria:</option>
           </select>
 
           <!-- ram -->
-          <select class="select" name="ram" id="ram" >
+          <select class="select" name="ram" id="ram">
             <option value="">Ram:</option>
           </select>
-          <input type="text" name="price" placeholder="Precio" >
-          <snap class="file">Imagen del dispositivo:<input type="file" class="input-file" name="imgCel" id="imgsCel" accept="image/jpg, image/jpeg, image/png" ></snap>
+          <input type="text" name="price" placeholder="Precio">
+
+          <snap class="file">Imagen del dispositivo:<input type="file"  class="input-file" name="imgCel" id="imgCel"
+              accept="image/jpg, image/jpeg, image/png, image/gif"></snap>
           <div class="btn-content"><button type="submit">REGISTRAR</button></div>
         </form>
       </div>
@@ -67,7 +70,7 @@
     <!-- footer -->
     <%- include('../partials/footer') %>
       <!-- footer -->
-    <script src="/js/product/register.js"></script>
+      <script src="/js/product/register.js"></script>
 </body>
 
 </html>
