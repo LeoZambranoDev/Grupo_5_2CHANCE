@@ -16,6 +16,7 @@ const storage = multer.diskStorage({
 const uploadProduct = multer(
     { 
         storage,
+       
         fileFilter: function (req, file, cb) {
             console.log(file.mimetype);
             let typeArray = file.mimetype.split('/');
@@ -23,7 +24,7 @@ const uploadProduct = multer(
             if (fileType == 'jpg' || fileType == 'png'|| fileType == 'jpeg'|| fileType == 'gif') {
               cb(null, true);
             } else {
-                req.fileValidationError='Formato no soportado, fomatos válidos: jpg, jpeg, png, gif'
+              req.fileValidationError='Formato no soportado, fomatos válidos: jpg, jpeg, png, gif'
               cb(null,false,new Error('mensaje de error 123123'))
             }
         }
