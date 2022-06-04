@@ -72,6 +72,15 @@
     max-width: 50%;
 }
 
+.errorsList{
+    width: 90%;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px;
+    margin-bottom: 5px;
+    color: rgb(230, 109, 109);
+}
+
 @media (min-width:1200px) {
     /* .formRegisterUser {
         width: 50%;
