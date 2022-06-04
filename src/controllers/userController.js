@@ -154,6 +154,32 @@ const user = {
         res.clearCookie('email');
         req.session.destroy();
         return res.redirect('/');
+    },
+    existEmail:async (req, res) => {
+        // res.send('entró acá')
+        let user = await userModel.existEmail(req.body.email)
+        if (user) {
+            // return res.send(true)
+            return res.status(200).json({
+                meta:{
+                    status:200,
+                    total:1,
+                    url:'/user/api/existEmail',
+                    method:'POST'
+                },
+                data: true
+            })
+        } else {
+            return res.status(200).json({
+                meta:{
+                    status:200,
+                    total:1,
+                    url:'/user/api/existEmail',
+                    method:'POST'
+                },
+                data: false
+            })
+        }
     }
 }
 
