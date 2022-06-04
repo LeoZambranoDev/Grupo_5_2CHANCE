@@ -34,10 +34,10 @@
                     <% } %> 
                 </div>
 
-                <input type="text" name="nick" placeholder="Ingresa tu usuario">
-                <input type="email" name="email" placeholder="Ingresa tu correo">
-                <input type="password" name="pass" placeholder="Ingresa tu contraseña">
-                <input type="password" name="passConfirm" placeholder="Confirma tu contraseña">
+                <input type="text" name="nick" id="nick" placeholder="Ingresa tu usuario">
+                <input type="email" name="email" id="email" placeholder="Ingresa tu correo">
+                <input type="password" name="pass" id="pass" placeholder="Ingresa tu contraseña">
+                <input type="password" name="passConfirm" id="passConfirm" placeholder="Confirma tu contraseña">
                 <snap class="file">Imagen de perfil:<input class="input-file" name="img-perfil" type="file"></snap>
                 <div class="check"><input type="checkbox" name="terminos" id="terminos"> <label for="terminos">Aceptar términos y condiciones</label></div>
                 <div class="check"><input type="checkbox" name="subscription" id="subscription"><label for="ofertas">Deseo recibir ofertas en mi correo</label> </div>
@@ -51,7 +51,7 @@
     <!-- footer -->
     <%- include('../partials/footer') %>
     <!-- footer -->
-
+<script src="/js/user/register.js"></script>
 </body>
 
 </html>
