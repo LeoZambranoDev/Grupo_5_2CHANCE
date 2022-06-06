@@ -32,3 +32,10 @@ Sprint 6
 3. Continuar haciendo: resolver más ejercicios de manera grupal sincrónica por videollamada. Realizar encuentros dos veces a la semana para resolver los ejercicios. 
 4. Hacer menos: no aplica.
 5. Dejar de hacer: no aplica. 
+
+Sprint 7
+1. Comenzar a hacer: redistribuir el trabajo que está pendiente entre quienes seguimos activos en el proyecto.
+2. Hacer más: aumentar la frecuencia de los encuentros corregir detalles de algunas vistas
+3. Continuar haciendo: corregir el diseño de la página, resolver más ejercicios de manera grupal sincrónica por videollamada.  
+4. Hacer menos: no aplica.
+5. Dejar de hacer: esperar que algunos compañeros terminen sus tareas pendientes de sprints anteriores. 
