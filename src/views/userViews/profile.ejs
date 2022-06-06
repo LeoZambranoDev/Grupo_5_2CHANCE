@@ -47,7 +47,7 @@
                 <label for="type">Tipo de usuario</label>
 				<input type="text" name="" id="type" placeholder="" disabled value="<%= (locals.user.type)?locals.user.type.name:'' %>" > 
 
-                <snap class="file">Cambiar imagen de perfil:<input class="input-file" name="img-perfil" type="file"></snap>
+                <snap class="file">Cambiar imagen de perfil:<input class="input-file" name="img-perfil" id="img-update" type="file"></snap>
                 <button type="submit">Actualizar</button>
             </form>
         </div>
@@ -56,5 +56,6 @@
 	<!-- //Container -->
 	
     <%- include('../partials/footer') %>
+    <script src="/js/user/update.js"></script>
 </body>
 </html>
