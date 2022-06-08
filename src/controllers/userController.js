@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs/dist/bcrypt')
 const path = require('path')
 
 const userModel = require('../models/userModel')
+const userModelApi = require('../models/userModelApi')
 const user = {
     login: (req, res) => {
         res.render('./userViews/login')
@@ -9,14 +10,14 @@ const user = {
     registerView: (req, res) => {
         res.render('./userViews/registerUser')
     },
-    register: async(req, res) => {
+    register: async (req, res) => {
         //Requerimos la función para capturar los errores almacenados en req
         const { validationResult } = require('express-validator')
         let errors = validationResult(req)
         let errorsList = errors.errors
 
         //Validar que no exista un email igual
-        let emailExist= await userModel.existEmail(req.body.email)
+        let emailExist = await userModel.existEmail(req.body.email)
         if (emailExist) {
             errorsList.push({
                 value: '',
@@ -121,9 +122,9 @@ const user = {
 
 
     },
-    profile:async (req, res) => {
+    profile: async (req, res) => {
         //Obtenemos el usuario por id
-        let userNow=await userModel.getUserById(req.session.userLogged.id)
+        let userNow = await userModel.getUserById(req.session.userLogged.id)
         //verificamos que esté logueado
         if (req.session.userLogged) {
             res.render('userViews/profile', {
@@ -133,19 +134,19 @@ const user = {
             res.redirect('/user/login')
         }
     },
-    updateProfile:async (req, res) => {
+    updateProfile: async (req, res) => {
         //Usuario a actualizar
-        let user={
-            firstName:req.body.firstName,
-            lastName:req.body.lastName,
-            address:req.body.address,
+        let user = {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            address: req.body.address,
         }
         //verificamos si se ha subido imagen para actualizarla
         if (req.file) {
             user.image = req.file.filename
         }
         //actulizamos el usuario
-        let userUpdated = await userModel.updateUser(req.session.userLogged.id,user)
+        let userUpdated = await userModel.updateUser(req.session.userLogged.id, user)
         //almacenamos en userlogged el usuario actualizado
         res.locals.userLogged = await userModel.getUserById(req.session.userLogged.id)
         res.redirect('/user/profile')
@@ -155,31 +156,69 @@ const user = {
         req.session.destroy();
         return res.redirect('/');
     },
-    existEmail:async (req, res) => {
+    existEmail: async (req, res) => {
         // res.send('entró acá')
         let user = await userModel.existEmail(req.body.email)
         if (user) {
             // return res.send(true)
             return res.status(200).json({
-                meta:{
-                    status:200,
-                    total:1,
-                    url:'/user/api/existEmail',
-                    method:'POST'
+                meta: {
+                    status: 200,
+                    total: 1,
+                    url: '/user/api/existEmail',
+                    method: 'POST'
                 },
                 data: true
             })
         } else {
             return res.status(200).json({
-                meta:{
-                    status:200,
-                    total:1,
-                    url:'/user/api/existEmail',
-                    method:'POST'
+                meta: {
+                    status: 200,
+                    total: 1,
+                    url: '/user/api/existEmail',
+                    method: 'POST'
                 },
                 data: false
             })
         }
+    },
+    apiUserList: async (req, res) => {
+        let listado= await userModelApi.getAllUsers()
+        // console.log(listado);
+        let ListadoDetails =[]
+        
+        listado.forEach(element => {
+            let user = {
+                id: element.id,
+                nick: element.nick,
+                email: element.email,
+                detail: 'http://localhost:8000/user/api/'+element.id
+            }
+            ListadoDetails.push(user)
+        });
+        // console.log(ListadoDetails);
+        return res.status(200).json({
+            meta: {
+                status: 200,
+                total: listado.length,
+                url: 'http://localhost:8000/user/api/list',
+                method: 'GET'
+            },
+            data: ListadoDetails
+        })
+    },
+    apiUserDetail: async (req, res) => {
+        console.log(req.params.id);
+        let user = await userModelApi.getUserById(req.params.id)
+        res.status(200).json({
+            meta: {
+                status: 200,
+                total: 1,
+                url: 'http://localhost:8000/user/api/:'+req.params.id,
+                method: 'GET'
+            },
+            data: user
+        })
     }
 }
 
