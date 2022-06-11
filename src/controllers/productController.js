@@ -1,7 +1,7 @@
 const fetch = require('node-fetch')
 
 const productModel = require('../models/productModel')
-
+const productModelApi = require('../models/productModelApi')
 const product = {
 
 	registerView: (req, res) => {
@@ -155,7 +155,46 @@ const product = {
 		let search = req.body.search
 		let products = await productModel.getProductsByName(search)
 		res.render('./productViews/categories', { products })
-	}
+	},
+	apiProductList: async (req, res) => {
+        let ProductList= await productModelApi.getAllProducts()
+              let ListDetails =[]
+        
+        ProductList.forEach(element => {
+            let product = {
+                id: element.id,
+                name: element.name,
+				brand: element.brand? element.brand.name : '',   
+				          
+                detail: 'http://localhost:8000/product/api/'+element.id
+            }
+            ListDetails.push(product)
+        });
+   //   console.log(ProductList[1].brand.name);
+        return res.status(200).json({
+            meta: {
+                status: 200,
+                total: ProductList.length,
+                url: 'http://localhost:8000/product/api/list',
+                method: 'GET'
+            },
+            data: ListDetails
+        })
+    },
+    apiProductDetail: async (req, res) => {
+
+        let product = await productModelApi.getProductById(req.params.id)
+        res.status(200).json({
+            meta: {
+                status: 200,
+                total: 1,
+                url: 'http://localhost:8000/product/api/:'+req.params.id,
+                method: 'GET'
+            },
+            data: product
+        })
+    }
 }
+
 
 module.exports = product;

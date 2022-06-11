@@ -26,6 +26,9 @@ router.put('/:id',uploadProduct.single('imgCel'),productController.updateProduct
 router.delete('/:id',productController.deleteProduct)      //delete product
 router.post('/categories',productController.categorySearch)      //view Categories
 
+// EndPoints API
+router.get('/api/list',productController.apiProductList)
+router.get('/api/:id',productController.apiProductDetail)
 
 
 
