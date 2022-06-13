@@ -3,10 +3,13 @@
 const express=require('express');
 const session=require('express-session');
 const cookies = require('cookie-parser') ;
+const cors = require('cors')
+const path=require('path');
 //Inicializamos 
 const app= express()
 //Variable para acceder a las rutas
-const path=require('path');
+//cors, para ocupar el api del backend
+app.use(cors())
 
 
 //Configuramos la carpeta public
@@ -38,7 +41,7 @@ const methodOverride =  require('method-override');
 app.use(methodOverride('_method'));
 
 //Listen para que el server se mantenga escuchando al puerto
-app.listen(process.env.PORT || 8000,() => console.log('Server running in 8000 port'));
+app.listen(process.env.PORT || 3001,() => console.log('Server running in 3001 port'));
 
 //Configuramos la app para que trabje con EJS como motor template engine
 app.set('view engine','ejs')
