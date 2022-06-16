@@ -28,6 +28,8 @@ router.post('/categories',productController.categorySearch)      //view Categori
 
 // EndPoints API
 router.get('/api/list',productController.apiProductList)
+router.get('/api/lastProduct',productController.lastProduct)
+router.get('/api/mostViewed',productController.apiProductMostViewed)
 router.get('/api/:id',productController.apiProductDetail)
 
 
