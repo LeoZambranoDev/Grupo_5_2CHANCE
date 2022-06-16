@@ -58,5 +58,12 @@ module.exports={
 			}
 		})
 		return products
+	},
+	getLastProduct: async () => {
+
+		let product= await db.Product.findOne({
+			order:[['id','DESC']]
+		})
+		return product
 	}
 }
