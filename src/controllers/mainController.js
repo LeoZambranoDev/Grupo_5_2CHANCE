@@ -16,7 +16,9 @@ const main={
         res.render('home',{products,productPro})
     },
     brands:(req,res)=>{
-        db.Brand.findAll()
+        db.Brand.findAll({
+            include:['products']
+        })
         .then(brands=>{
             return res.json(brands)
         }).catch(e=>{
