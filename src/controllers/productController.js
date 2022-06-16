@@ -193,7 +193,31 @@ const product = {
             },
             data: product
         })
-    }
+    },
+	lastProduct: async (req, res) => {
+		let product = await productModel.getLastProduct()
+		res.status(200).json({
+            meta: {
+                status: 200,
+                total: 1,
+                url: 'http://localhost:3001/product/api/lastProduct',
+                method: 'GET'
+            },
+            data: product
+        })
+	},
+	apiProductMostViewed: async (req, res) => {
+		let products = await productModel.getProductByCategory('MostViewed')
+		res.status(200).json({
+            meta: {
+                status: 200,
+                total: products.length,
+                url: 'http://localhost:3001/product/api/mostViewed',
+                method: 'GET'
+            },
+            data: products
+        })
+	}
 }
 
 
