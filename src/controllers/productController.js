@@ -77,11 +77,11 @@ const product = {
 				let product = await productModel.getProductById(req.params.id)
 
 				//Obtenemos los datos para cargar dinámicamente los selects del html
-				let brands = await fetch('http://localhost:8000/api/brands').then(list => list.json())
-				let colors = await fetch('http://localhost:8000/api/colors').then(list => list.json())
-				let memories = await fetch('http://localhost:8000/api/memories').then(list => list.json())
-				let categories = await fetch('http://localhost:8000/api/categories').then(list => list.json())
-				let rams = await fetch('http://localhost:8000/api/rams').then(list => list.json())
+				let brands = await fetch('http://localhost:3001/api/brands').then(list => list.json())
+				let colors = await fetch('http://localhost:3001/api/colors').then(list => list.json())
+				let memories = await fetch('http://localhost:3001/api/memories').then(list => list.json())
+				let categories = await fetch('http://localhost:3001/api/categories').then(list => list.json())
+				let rams = await fetch('http://localhost:3001/api/rams').then(list => list.json())
 
 				// verificamos que haya un resultado
 				if (product) {
@@ -165,8 +165,9 @@ const product = {
                 id: element.id,
                 name: element.name,
 				brand: element.brand? element.brand.name : '',   
-				          
-                detail: 'http://localhost:8000/product/api/'+element.id
+				price: element.price,   
+				
+                detail: 'http://localhost:3001/product/api/'+element.id
             }
             ListDetails.push(product)
         });
@@ -175,7 +176,7 @@ const product = {
             meta: {
                 status: 200,
                 total: ProductList.length,
-                url: 'http://localhost:8000/product/api/list',
+                url: 'http://localhost:3001/product/api/list',
                 method: 'GET'
             },
             data: ListDetails
@@ -188,7 +189,7 @@ const product = {
             meta: {
                 status: 200,
                 total: 1,
-                url: 'http://localhost:8000/product/api/:'+req.params.id,
+                url: 'http://localhost:3001/product/api/:'+req.params.id,
                 method: 'GET'
             },
             data: product

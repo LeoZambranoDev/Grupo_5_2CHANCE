@@ -3,7 +3,7 @@ const db = require('../data/models');
 productModel = {
 	getAllProducts: async  ()=> {
 		let list= await db.Product.findAll({
-			attributes: ['id', 'name'],
+			attributes: ['id', 'name', 'price'],
 			include: ['brand']
 				
 		})
