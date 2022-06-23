@@ -1,7 +1,7 @@
 window.addEventListener('load', function () {
     
     let categorySelect = document.getElementById('category')
-    fetch('http://localhost:8000/api/categories')
+    fetch('http://localhost:3001/api/categories')
         .then(response => response.json())
         .then(categories => {
             
@@ -12,7 +12,7 @@ window.addEventListener('load', function () {
 
         });
     let brandSelect = document.getElementById('mark')
-    fetch('http://localhost:8000/api/brands')
+    fetch('http://localhost:3001/api/brands')
         .then(response => response.json())
         .then(list => {
             
@@ -23,7 +23,7 @@ window.addEventListener('load', function () {
 
         });
     let memorySelect = document.getElementById('memory')
-    fetch('http://localhost:8000/api/memories')
+    fetch('http://localhost:3001/api/memories')
         .then(response => response.json())
         .then(list => {
             
@@ -34,7 +34,7 @@ window.addEventListener('load', function () {
 
         });
     let ramSelect = document.getElementById('ram')
-    fetch('http://localhost:8000/api/rams')
+    fetch('http://localhost:3001/api/rams')
         .then(response => response.json())
         .then(list => {
             
@@ -45,7 +45,7 @@ window.addEventListener('load', function () {
 
         });
     let colorSelect = document.getElementById('color')
-    fetch('http://localhost:8000/api/colors')
+    fetch('http://localhost:3001/api/colors')
         .then(response => response.json())
         .then(list => {
             

@@ -38,7 +38,7 @@ window.addEventListener('load', function () {
                 e.preventDefault()
             }
         }
-        let result= await fetch('http://localhost:8000/user/api/existEmail',
+        let result= await fetch('http://localhost:3001/user/api/existEmail',
         {
             method: 'POST',
             headers: 

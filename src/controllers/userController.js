@@ -192,7 +192,7 @@ const user = {
                 id: element.id,
                 nick: element.nick,
                 email: element.email,
-                detail: 'http://localhost:8000/user/api/'+element.id
+                detail: 'http://localhost:3001/user/api/'+element.id
             }
             ListadoDetails.push(user)
         });
@@ -201,7 +201,7 @@ const user = {
             meta: {
                 status: 200,
                 total: listado.length,
-                url: 'http://localhost:8000/user/api/list',
+                url: 'http://localhost:3001/user/api/list',
                 method: 'GET'
             },
             data: ListadoDetails
@@ -214,7 +214,7 @@ const user = {
             meta: {
                 status: 200,
                 total: 1,
-                url: 'http://localhost:8000/user/api/:'+req.params.id,
+                url: 'http://localhost:3001/user/api/:'+req.params.id,
                 method: 'GET'
             },
             data: user
