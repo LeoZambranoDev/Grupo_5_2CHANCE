@@ -39,3 +39,10 @@ Sprint 7
 3. Continuar haciendo: corregir el diseño de la página, resolver más ejercicios de manera grupal sincrónica por videollamada.  
 4. Hacer menos: no aplica.
 5. Dejar de hacer: esperar que algunos compañeros terminen sus tareas pendientes de sprints anteriores. 
+
+Sprint 8
+1. Comenzar a hacer: presentar los resultados del proyecto 
+2. Hacer más: implementar los opcionales para seguir aprendiendo
+3. Continuar haciendo: corregir el diseño de la página, resolver más ejercicios de manera grupal sincrónica por videollamada.  
+4. Hacer menos: no aplica.
+5. Dejar de hacer: no aplica.
