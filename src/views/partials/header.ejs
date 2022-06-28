@@ -15,9 +15,11 @@
                     <snap class="div-line"></snap>
                     <li> <a href="/product/register">Registrar celular</a> </li>
                     <snap class="div-line"></snap>
+                    <li> <a href="/user/login">Mi cuenta</a> </li>
+                    <snap class="div-line"></snap>
                     <li> <a href="/user/logout">Logout</a> </li>
                     <snap class="div-line"></snap>
-                                     <% }else if ( locals.isLogged) { %>
+                <% }else if ( locals.isLogged) { %>
                     
                     <li>Hola, <%= userLogged.nick %> </li>
                     <snap class="div-line"></snap>
